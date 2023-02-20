@@ -1,0 +1,47 @@
+{
+    "tables": [
+        {
+            "number": "2",
+            "status": "Reserved",
+            "food": "",
+            "comment": "",
+            "id": 2
+        },
+        {
+            "number": "3",
+            "status": "Reserved",
+            "food": "",
+            "comment": "",
+            "id": 3
+        },
+        {
+            "number": "4",
+            "status": "Reserved",
+            "food": "",
+            "comment": "",
+            "id": 4
+        },
+        {
+            "number": "5",
+            "status": "Reserved",
+            "food": "",
+            "comment": "",
+            "id": 5
+        },
+        {
+            "number": "3",
+            "status": "Waiter Called",
+            "food": "Food 1x2\nSalad 2x1\nPork 1x4",
+            "comment": "",
+            "id": 6
+        },
+        {
+            "name": "55",
+            "number": "9",
+            "status": "Waiter Called",
+            "food": "Food 1x2",
+            "comment": "",
+            "id": 7
+        }
+    ]
+}
