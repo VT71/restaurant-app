@@ -1,7 +1,7 @@
-import React from "react";
-import FoodSelection from "./FoodSelection";
-import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import React from 'react';
+import FoodSelection from './FoodSelection';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 import {
     updateGlobalState,
     addTableNumber,
@@ -11,8 +11,8 @@ import {
     addComment,
     addTable,
     updatePendingReservation,
-} from "../store/slices/TableSlice";
-import FormSelectionPreview from "./FormSelectionPreview";
+} from '../store/slices/TableSlice';
+import FormSelectionPreview from './FormSelectionPreview';
 
 function Form() {
     // const [pendingReservation, setReservation] = useState({
@@ -30,6 +30,10 @@ function Form() {
     // );
     const pendingReservation = useSelector(
         (state) => state.tables.pendingReservation
+    );
+
+    const pendingModification = useSelector(
+        (state) => state.tables.pendingModification
     );
     // const getTables = async (
     //     tableNumber,
@@ -65,28 +69,28 @@ function Form() {
     // };
 
     const submitOrder = (e) => {
-        const tableNumber = document.getElementById("tableno-input").value;
+        const tableNumber = document.getElementById('tableno-input').value;
         // dispatch(addTableNumber(tableNumber));
-        const tableStatus = document.getElementById("status-input").value;
+        const tableStatus = document.getElementById('status-input').value;
         // dispatch(
         //     addTableStatus({
         //         number: tableNumber,
         //         status: document.getElementById('status-input').value,
         //     })
         // );
-        let breakfast = "";
-        let salads = "";
-        let fish = "";
-        let pork = "";
-        let dessert = "";
-        let comment = "";
+        let breakfast = '';
+        let salads = '';
+        let fish = '';
+        let pork = '';
+        let dessert = '';
+        let comment = '';
         if (
             !(
-                document.getElementById("breakfast-selection").value ===
-                "unselected"
+                document.getElementById('breakfast-selection').value ===
+                'unselected'
             )
         ) {
-            breakfast = document.getElementById("breakfast-selection").value;
+            breakfast = document.getElementById('breakfast-selection').value;
             // dispatch(
             //     addBreakfast({
             //         number: tableNumber,
@@ -98,11 +102,11 @@ function Form() {
         }
         if (
             !(
-                document.getElementById("salads-selection").value ===
-                "unselected"
+                document.getElementById('salads-selection').value ===
+                'unselected'
             )
         ) {
-            salads = document.getElementById("salads-selection").value;
+            salads = document.getElementById('salads-selection').value;
             // dispatch(
             //     addSalad({
             //         number: tableNumber,
@@ -111,9 +115,9 @@ function Form() {
             // );
         }
         if (
-            !(document.getElementById("fish-selection").value === "unselected")
+            !(document.getElementById('fish-selection').value === 'unselected')
         ) {
-            fish = document.getElementById("fish-selection").value;
+            fish = document.getElementById('fish-selection').value;
             // dispatch(
             //     addSalad({
             //         number: tableNumber,
@@ -122,9 +126,9 @@ function Form() {
             // );
         }
         if (
-            !(document.getElementById("pork-selection").value === "unselected")
+            !(document.getElementById('pork-selection').value === 'unselected')
         ) {
-            pork = document.getElementById("pork-selection").value;
+            pork = document.getElementById('pork-selection').value;
             // dispatch(
             //     addSalad({
             //         number: tableNumber,
@@ -134,11 +138,11 @@ function Form() {
         }
         if (
             !(
-                document.getElementById("dessert-selection").value ===
-                "unselected"
+                document.getElementById('dessert-selection').value ===
+                'unselected'
             )
         ) {
-            dessert = document.getElementById("dessert-selection").value;
+            dessert = document.getElementById('dessert-selection').value;
             // dispatch(
             //     addSalad({
             //         number: tableNumber,
@@ -146,8 +150,8 @@ function Form() {
             //     })
             // );
         }
-        if (!(document.getElementById("comments-input").value === "")) {
-            comment = document.getElementById("comments-input").value;
+        if (!(document.getElementById('comments-input').value === '')) {
+            comment = document.getElementById('comments-input').value;
             // dispatch(
             //     addComment({
             //         number: tableNumber,
@@ -156,7 +160,7 @@ function Form() {
             // );
         }
         console.log(
-            "Pending Reservation to be dispatched: " +
+            'Pending Reservation to be dispatched: ' +
                 JSON.stringify(pendingReservation)
         );
 
@@ -165,60 +169,66 @@ function Form() {
         e.target.reset();
     };
     return (
-        <div className="container-md mt-5" data-testid="form-container">
-            <div className="container">
-                <div className="row m-auto">
-                    <div className="col-8">
-                        <div className="card">
-                            <div className="card-body">
+        <div className='container-md mt-5' data-testid='form-container'>
+            <div className='container'>
+                <div className='row m-auto'>
+                    <div className='col-8'>
+                        <div className='card'>
+                            <div className='card-body'>
                                 <h2>Add Entry</h2>
                                 <form
-                                    data-testid="form"
+                                    data-testid='form'
                                     onSubmit={(e) => {
                                         submitOrder(e);
                                     }}
                                 >
-                                    <div className="mb-3">
+                                    <div className='mb-3'>
                                         <label
-                                            htmlFor="tableno-input"
-                                            className="float-start form-label"
+                                            htmlFor='tableno-input'
+                                            className='float-start form-label'
                                         >
                                             Table #
                                         </label>
                                         <input
-                                            type="number"
-                                            min="1"
-                                            max="10"
-                                            className="form-control"
-                                            id="tableno-input"
-                                            data-testid="tableno-input"
+                                            type='number'
+                                            min='1'
+                                            max='10'
+                                            className='form-control'
+                                            id='tableno-input'
+                                            data-testid='tableno-input'
                                             required
+                                            value={
+                                                pendingModification.status !=
+                                                'none'
+                                                    ? pendingModification.number
+                                                    : undefined
+                                            }
                                             onChange={(e) => {
                                                 dispatch(
                                                     updatePendingReservation({
-                                                        dataType: "number",
+                                                        dataType: 'number',
                                                         data: e.target.value,
                                                     })
                                                 );
                                             }}
                                         />
                                     </div>
-                                    <div className="mb-3">
+                                    <div className='mb-3'>
                                         <label
-                                            htmlFor="status-input"
-                                            className="float-start form-label"
+                                            htmlFor='status-input'
+                                            className='float-start form-label'
                                         >
                                             Status
                                         </label>
                                         <select
-                                            className="form-select"
-                                            id="status-input"
-                                            data-testid="status-input"
-                                            placeholder="unselected"
+                                            className='form-select'
+                                            id='status-input'
+                                            data-testid='status-input'
+                                            placeholder='unselected'
                                             onChange={(e) =>
                                                 dispatch(
                                                     updatePendingReservation({
-                                                        dataType: "status",
+                                                        dataType: 'status',
                                                         data: e.target.value,
                                                     })
                                                 )
@@ -229,36 +239,36 @@ function Form() {
                                             <option>Awaiting Order</option>
                                         </select>
                                     </div>
-                                    <FoodSelection foodType="breakfast" />
-                                    <FoodSelection foodType="salads" />
-                                    <FoodSelection foodType="fish" />
-                                    <FoodSelection foodType="pork" />
-                                    <FoodSelection foodType="dessert" />
-                                    <div className="mb-3">
+                                    <FoodSelection foodType='breakfast' />
+                                    <FoodSelection foodType='salads' />
+                                    <FoodSelection foodType='fish' />
+                                    <FoodSelection foodType='pork' />
+                                    <FoodSelection foodType='dessert' />
+                                    <div className='mb-3'>
                                         <label
-                                            htmlFor="comments-input"
-                                            className="float-start form-label"
+                                            htmlFor='comments-input'
+                                            className='float-start form-label'
                                         >
                                             Comments
                                         </label>
                                         <textarea
-                                            className="form-control"
-                                            id="comments-input"
-                                            data-testid="comments-input"
+                                            className='form-control'
+                                            id='comments-input'
+                                            data-testid='comments-input'
                                             onChange={(e) =>
                                                 dispatch(
                                                     updatePendingReservation({
-                                                        dataType: "comment",
+                                                        dataType: 'comment',
                                                         data: e.target.value,
                                                     })
                                                 )
                                             }
                                         />
                                     </div>
-                                    <div className="mb-3">
+                                    <div className='mb-3'>
                                         <button
-                                            className="btn btn-primary"
-                                            type="submit"
+                                            className='btn btn-primary'
+                                            type='submit'
                                         >
                                             Submit
                                         </button>
@@ -267,7 +277,7 @@ function Form() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-4">
+                    <div className='col-4'>
                         <FormSelectionPreview />
                     </div>
                 </div>

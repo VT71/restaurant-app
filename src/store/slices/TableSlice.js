@@ -11,6 +11,7 @@ export const initialState = {
         food: '',
         comment: '',
     },
+    pendingModification: { status: 'none', id: '', number: '' },
 };
 
 export const fetchTables = createAsyncThunk('tables/fetchTables', async () => {
@@ -135,6 +136,9 @@ export const tableSlice = createSlice({
                         JSON.stringify(state.pendingReservation)
                 );
             }
+        },
+        updatePendingModification: (state, action) => {
+            state.pendingModification = action.payload;
         },
         // addTable: {
         //     reducer(state, action) {
@@ -288,6 +292,7 @@ export const tableSlice = createSlice({
 export const {
     markToDelete,
     updatePendingReservation,
+    updatePendingModification,
     updateGlobalState,
     addTableNumber,
     addTableStatus,

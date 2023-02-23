@@ -9,6 +9,7 @@ import {
     removeTables,
     removeAllTables,
     updatePendingReservation,
+    updatePendingModification,
 } from '../store/slices/TableSlice';
 import store from '../store/store';
 import { nanoid } from '@reduxjs/toolkit';
@@ -161,6 +162,22 @@ function Table({ props }) {
                                                                             }
                                                                         )
                                                                     );
+                                                                    dispatch(
+                                                                        updatePendingModification(
+                                                                            {
+                                                                                status: 'none',
+                                                                                id: '',
+                                                                                number: '',
+                                                                            }
+                                                                        )
+                                                                    );
+                                                                    document.getElementById(
+                                                                        'tableno-input'
+                                                                    ).readOnly = false;
+                                                                    document.getElementById(
+                                                                        'tableno-input'
+                                                                    ).value =
+                                                                        '';
                                                                 }
                                                             }}
                                                             onChange={() => {
@@ -199,6 +216,23 @@ function Table({ props }) {
                                                                             }
                                                                         )
                                                                     );
+                                                                    dispatch(
+                                                                        updatePendingModification(
+                                                                            {
+                                                                                status: 'in-progress',
+                                                                                id: table.id,
+                                                                                number: table.number,
+                                                                            }
+                                                                        )
+                                                                    );
+                                                                    document
+                                                                        .getElementById(
+                                                                            'tableno-input'
+                                                                        )
+                                                                        .setAttribute(
+                                                                            'readonly',
+                                                                            'true'
+                                                                        );
                                                                 }
                                                                 console.log(
                                                                     'tableToEdit After: ' +
@@ -327,6 +361,17 @@ function Table({ props }) {
                                     },
                                 })
                             );
+                            dispatch(
+                                updatePendingModification({
+                                    status: 'none',
+                                    id: '',
+                                    number: '',
+                                })
+                            );
+                            document.getElementById(
+                                'tableno-input'
+                            ).readOnly = false;
+                            document.getElementById('tableno-input').value = '';
                         }}
                     >
                         Cancel Modification
