@@ -11,6 +11,7 @@ import {
     addComment,
     addTable,
     updatePendingReservation,
+    editTable,
 } from '../store/slices/TableSlice';
 import FormSelectionPreview from './FormSelectionPreview';
 
@@ -164,7 +165,16 @@ function Form() {
                 JSON.stringify(pendingReservation)
         );
 
-        dispatch(addTable(pendingReservation));
+        if (pendingModification.status == 'in-progress') {
+            dispatch(
+                editTable({
+                    id: pendingModification.id,
+                    table: pendingReservation,
+                })
+            );
+        } else {
+            dispatch(addTable(pendingReservation));
+        }
 
         e.target.reset();
     };
@@ -207,6 +217,28 @@ function Form() {
                                                 dispatch(
                                                     updatePendingReservation({
                                                         dataType: 'number',
+                                                        data: e.target.value,
+                                                    })
+                                                );
+                                            }}
+                                        />
+                                    </div>
+                                    <div className='mb-3'>
+                                        <label
+                                            htmlFor='customer-name-input'
+                                            className='float-start form-label'
+                                        >
+                                            Customer Name
+                                        </label>
+                                        <input
+                                            className='form-control'
+                                            id='customer-name-input'
+                                            data-testid='tableno-input'
+                                            required
+                                            onChange={(e) => {
+                                                dispatch(
+                                                    updatePendingReservation({
+                                                        dataType: 'name',
                                                         data: e.target.value,
                                                     })
                                                 );

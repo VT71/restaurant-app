@@ -102,6 +102,23 @@ export const removeAllTables = createAsyncThunk(
     }
 );
 
+export const editTable = createAsyncThunk(
+    'tables/editTable',
+    async (modifiedTable) => {
+        const response = await fetch(
+            `http://localhost:3333/tables/${modifiedTable.id}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify(modifiedTable.table),
+            }
+        );
+        return response.json();
+    }
+);
+
 export const tableSlice = createSlice({
     name: 'tableSlice',
     initialState,
@@ -251,16 +268,16 @@ export const tableSlice = createSlice({
             .addCase(addTable.fulfilled, (state, action) => {
                 state.apiStatus = 'succeeded';
                 console.log('Add Table Succeeded');
-                console.log(
-                    'Add Table Payload: ' + JSON.stringify(action.payload)
-                );
-                state.tables.push(action.payload);
-                state.pendingReservation = {
-                    number: 0,
-                    status: 'Reserved',
-                    food: '',
-                    comment: '',
-                };
+                // console.log(
+                //     'Add Table Payload: ' + JSON.stringify(action.payload)
+                // );
+                // state.tables.push(action.payload);
+                // state.pendingReservation = {
+                //     number: 0,
+                //     status: 'Reserved',
+                //     food: '',
+                //     comment: '',
+                // };
             })
             .addCase(removeTables.fulfilled, (state, action) => {
                 state.apiStatus = 'succeeded';
@@ -285,6 +302,9 @@ export const tableSlice = createSlice({
             .addCase(removeAllTables.fulfilled, (state, action) => {
                 state.apiStatus = 'succeeded';
                 state.tables = [];
+            })
+            .addCase(editTable.fulfilled, (state, action) => {
+                state.apiStatus = 'succeeded';
             });
     },
 });
