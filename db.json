@@ -50,6 +50,24 @@
       "comment": "",
       "name": "Hellloooo Bro",
       "id": 8
+    },
+    {
+      "name": "Michael",
+      "number": "7",
+      "status": "Waiter Called",
+      "id": 9
+    },
+    {
+      "name": "Leonard",
+      "number": "6",
+      "status": "Waiter Called",
+      "id": 10
+    },
+    {
+      "name": "Ricardo",
+      "number": "6",
+      "status": "Waiter Called",
+      "id": 11
     }
   ]
 }

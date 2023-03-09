@@ -56,11 +56,22 @@
 }
 
 .hidden-element {
-    display : none;
+    display: none;
+}
+
+.menu-page {
+    background-color: aliceblue;
+    width: 100%;
+    height: 100vh;
 }
 
 .foodImg {
     height: 100%;
+}
+
+.card-body {
+    overflow: scroll;
+    word-break: break-all;
 }
 
 .card-body.menu {
@@ -69,4 +80,61 @@
 
 .card-footer {
     height: 65px;
+}
+
+.menu-category {
+    width: 30%;
+    margin-bottom: 30px;
+}
+
+.menu-container {
+    margin: 0 100px 0 100px;
+}
+
+.customCard {
+    transition: box-shadow 0.3s;
+    background-color: white;
+    color: #3b3440;
+    width: 23%;
+    height: fit-content;
+    border-radius: 12px;
+}
+
+.customCard:hover {
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.customCard:active {
+    box-shadow: 0 0 0 transparent;
+}
+
+.cardImgContainer {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.cardTextContainer {
+    padding: 10px 16px 0 16px;
+}
+
+.cardButton {
+    font-size: 14px;
+    background-color: #c4d7ed;
+    width: fit-content;
+    padding: 0 24px 0 24px;
+    height: 40px;
+    border-radius: 20px;
+    color: #183152;
+    margin: 10px 16px 10px 16px;
+}
+
+.cardButton p {
+    margin: 0;
+}
+
+.cardButton.two {
+    background-color: #183152;
+    color: #e1e6fa;
 }

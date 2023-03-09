@@ -1,17 +1,17 @@
-import React from "react";
-import "../../App.css";
-import { useNavigate } from "react-router";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTable } from "../../store/slices/TableSlice";
+import React from 'react';
+import '../../App.css';
+import { useNavigate } from 'react-router';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTable } from '../../store/slices/TableSlice';
 //import Table from "../Table";
 
 function CustomerPage() {
     const dispatch = useDispatch();
     const [newTable, setNewTable] = useState({
-        name: "",
-        number: "",
-        status: "Waiter Called",
+        name: '',
+        number: '',
+        status: 'Waiter Called',
     });
 
     let navigate = useNavigate();
@@ -22,17 +22,23 @@ function CustomerPage() {
 
     return (
         <div>
-            <h1 className="mt-4 mb-5 text-center">Customer Page</h1>
-            <div className="row">
+            <h1 className='mt-4 mb-5 text-center'>Customer Page</h1>
+            <div className='row'>
                 <form>
-                    <div className="col col-sm-6 col-md-4 m-auto text-center">
+                    <div className='col col-sm-6 col-md-4 m-auto text-center'>
                         <h2>Select your table number 🍽</h2>
-                        <div className="input-group mb-3">
-                            <span className="input-group-text">Your Name</span>
+                        <div class='mb-3'>
+                            <label
+                                for='customerNameInput'
+                                class='form-label float-start'
+                            >
+                                Your Name
+                            </label>
                             <input
-                                type="text"
-                                className="form-control"
-                                aria-label="Table Number"
+                                type='text'
+                                className='form-control'
+                                aria-label='Table Number'
+                                id='customerNameInput'
                                 required
                                 onChange={(e) =>
                                     setNewTable({
@@ -42,14 +48,19 @@ function CustomerPage() {
                                 }
                             />
                         </div>
-                        <div className="input-group mb-3">
-                            <span className="input-group-text">
+
+                        <div class='mb-3'>
+                            <label
+                                for='customerTableNoInput'
+                                class='form-label float-start'
+                            >
                                 Table Number
-                            </span>
+                            </label>
                             <input
-                                type="number"
-                                className="form-control"
-                                aria-label="Table Number"
+                                id='customerTableNoInput'
+                                type='number'
+                                className='form-control'
+                                aria-label='Table Number'
                                 required
                                 onChange={(e) =>
                                     setNewTable({
@@ -59,15 +70,16 @@ function CustomerPage() {
                                 }
                             />
                         </div>
+
                         <button
-                            className="btn btn-primary"
-                            type="submit"
+                            className='btn btn-primary'
+                            type='submit'
                             onClick={() => {
                                 dispatch(addTable(newTable));
                                 console.log(
-                                    " newTable: " + JSON.stringify(newTable)
+                                    ' newTable: ' + JSON.stringify(newTable)
                                 );
-                                routeChange(1);
+                                routeChange(newTable.number);
                             }}
                         >
                             Submit form

@@ -97,7 +97,13 @@ function Table({ props }) {
                                             <th className='text-center'>
                                                 Table #
                                             </th>
-                                            <th className='text-center'>
+                                            <th
+                                                className={
+                                                    props.forWaiter
+                                                        ? 'text-center'
+                                                        : 'text-center hidden-element'
+                                                }
+                                            >
                                                 Customer Name
                                             </th>
                                             <th className='text-center'>
@@ -117,6 +123,11 @@ function Table({ props }) {
                                                 <tr key={nanoid()}>
                                                     <td>
                                                         <input
+                                                            className={
+                                                                props.forWaiter
+                                                                    ? ''
+                                                                    : 'hidden-element'
+                                                            }
                                                             type='radio'
                                                             id={
                                                                 'radioInput-' +
@@ -290,7 +301,13 @@ function Table({ props }) {
                                                             {table.number}
                                                         </label>
                                                     </td>
-                                                    <td className='text-center'>
+                                                    <td
+                                                        className={
+                                                            props.forWaiter
+                                                                ? 'text-center'
+                                                                : 'text-center hidden-element'
+                                                        }
+                                                    >
                                                         {table.name}
                                                     </td>
                                                     <td className='text-center'>
