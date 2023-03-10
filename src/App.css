@@ -62,7 +62,8 @@
 .menu-page {
     background-color: aliceblue;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    padding-left: 80px;
 }
 
 .foodImg {
@@ -98,6 +99,7 @@
     width: 23%;
     height: fit-content;
     border-radius: 12px;
+    margin-top: 2em;
 }
 
 .customCard:hover {
@@ -137,4 +139,41 @@
 .cardButton.two {
     background-color: #183152;
     color: #e1e6fa;
+}
+
+.nav-rail {
+    background-color: #d5e7f2;
+    width: 80px;
+    position: fixed;
+    height: 100%;
+}
+
+.nav-rail-item {
+    width: 100%;
+    height: 56px;
+    margin-bottom: 12px;
+}
+
+.nav-rail-item:hover {
+    cursor: pointer;
+}
+
+.nav-rail-item:hover .nav-icon-container {
+    background-color: #c0d9e9;
+}
+
+.nav-rail-item h2 {
+    font-size: 12px;
+    margin: 0;
+}
+
+.nav-rail-item h2,
+i {
+    color: #243340;
+}
+
+.nav-icon-container {
+    height: 32px;
+    width: 56px;
+    border-radius: 16px;
 }
