@@ -148,6 +148,10 @@
     height: 100%;
 }
 
+.nav-rail a {
+    text-decoration: none;
+}
+
 .nav-rail-item {
     width: 100%;
     height: 56px;
@@ -158,8 +162,24 @@
     cursor: pointer;
 }
 
+.nav-rail-item.active .nav-icon-container {
+    background-color: #aecce6;
+}
+
+.nav-rail-item.active:hover .nav-icon-container {
+    background-color: #86afd3;
+}
+
+.nav-rail-item.active:active .nav-icon-container {
+    background-color: #aecce6;
+}
+
 .nav-rail-item:hover .nav-icon-container {
-    background-color: #c0d9e9;
+    background-color: #ffffff80;
+}
+
+.nav-rail-item:active .nav-icon-container {
+    background-color: transparent;
 }
 
 .nav-rail-item h2 {

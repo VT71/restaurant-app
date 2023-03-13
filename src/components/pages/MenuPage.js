@@ -1,14 +1,28 @@
 import React from 'react';
 import '../../App.css';
 import { useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateFood } from '../../store/slices/CustomerSlice';
+import { Link } from 'react-router-dom';
 
 function MenuPage() {
     const [queryParameters] = useSearchParams();
+    const customerPage = window.location.pathname;
+    const pendingOrderFood = useSelector(
+        (state) => state.customer.pendingOrder.food
+    );
+    const dispatch = useDispatch();
 
     return (
         <div className='d-flex'>
             <div className='nav-rail d-flex flex-column align-items-center justify-content-center'>
-                <div className='nav-rail-item d-flex align-items-center justify-content-center'>
+                <div
+                    className={
+                        customerPage.includes('menu')
+                            ? 'nav-rail-item active d-flex align-items-center justify-content-center'
+                            : 'nav-rail-item d-flex align-items-center justify-content-center'
+                    }
+                >
                     <div className='d-flex flex-column justify-content-center align-items-center'>
                         <div className='nav-icon-container d-flex justify-content-center align-items-center'>
                             <div className='nav-icon'>
@@ -18,21 +32,23 @@ function MenuPage() {
                         <h2 className='text-center'>Menu</h2>
                     </div>
                 </div>
-                <div className='nav-rail-item d-flex align-items-center justify-content-center'>
-                    <div className='d-flex flex-column justify-content-center align-items-center'>
-                        <div className='nav-icon-container d-flex justify-content-center align-items-center'>
-                            <div className='nav-icon'>
-                                <i class='fa-solid fa-cart-shopping fa-xl'></i>
+                <Link to='/order'>
+                    <div className='nav-rail-item d-flex align-items-center justify-content-center'>
+                        <div className='d-flex flex-column justify-content-center align-items-center'>
+                            <div className='nav-icon-container d-flex justify-content-center align-items-center'>
+                                <div className='nav-icon'>
+                                    <i className='fa-solid fa-cart-shopping fa-xl'></i>
+                                </div>
                             </div>
+                            <h2 className='text-center'>My Order</h2>
                         </div>
-                        <h2 className='text-center'>My Order</h2>
                     </div>
-                </div>
+                </Link>
                 <div className='nav-rail-item d-flex align-items-center justify-content-center'>
                     <div className='d-flex flex-column justify-content-center align-items-center'>
                         <div className='nav-icon-container d-flex justify-content-center align-items-center'>
                             <div className='nav-icon'>
-                                <i class='fa-solid fa-circle-question fa-xl'></i>
+                                <i className='fa-solid fa-circle-question fa-xl'></i>
                             </div>
                         </div>
                         <h2 className='text-center'>Call Waiter</h2>
@@ -53,7 +69,7 @@ function MenuPage() {
                         </div>
 
                         <div className='cardTextContainer'>
-                            <h5 className='card-title'>Card title</h5>
+                            <h5 className='card-title'>CardFood</h5>
                             <div>
                                 <p>Ingredients</p>
                                 <ul>
@@ -63,8 +79,13 @@ function MenuPage() {
                                 </ul>
                             </div>
                         </div>
-                        <div className='cardButton d-flex justify-content-center align-items-center'>
-                            <p className='fw-bold'>More</p>
+                        <div
+                            className='cardButton d-flex justify-content-center align-items-center'
+                            onClick={() => {
+                                dispatch(updateFood('Card Food'));
+                            }}
+                        >
+                            <p className='fw-bold'>Order +</p>
                         </div>
                     </div>
                     <div className='customCard'>
