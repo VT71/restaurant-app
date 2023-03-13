@@ -2,7 +2,7 @@ import React from 'react';
 import '../../App.css';
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateFood } from '../../store/slices/CustomerSlice';
+import { addFood } from '../../store/slices/CustomerSlice';
 import { Link } from 'react-router-dom';
 
 function MenuPage() {
@@ -82,7 +82,7 @@ function MenuPage() {
                         <div
                             className='cardButton d-flex justify-content-center align-items-center'
                             onClick={() => {
-                                dispatch(updateFood('Card Food'));
+                                dispatch(addFood('Card Food'));
                             }}
                         >
                             <p className='fw-bold'>Order +</p>

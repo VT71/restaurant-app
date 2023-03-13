@@ -1,8 +1,10 @@
 import { nanoid } from '@reduxjs/toolkit';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateFood } from '../../store/slices/CustomerSlice';
 
 function OrderPage() {
+    const dispatch = useDispatch();
     const orderFood = useSelector((state) => state.customer.pendingOrder.food);
     const splitOrderFood = orderFood.split('\n');
     console.log(orderFood);
@@ -41,19 +43,29 @@ function OrderPage() {
                                                     type='button'
                                                     className='btn btn-outline-primary'
                                                     onClick={() => {
-                                                        const newFood =
-                                                            food +
-                                                            'x' +
-                                                            (foodQuantity - 1);
-                                                        console.log(
-                                                            'New Food: ' +
-                                                                newFood
-                                                        );
-                                                        splitOrderFood[index] =
-                                                            newFood;
-                                                        console.log(
-                                                            'SplitOrderFood: ' +
-                                                                splitOrderFood
+                                                        if (foodQuantity == 1) {
+                                                            splitOrderFood.splice(
+                                                                index,
+                                                                1
+                                                            );
+                                                        } else {
+                                                            const newFood =
+                                                                food +
+                                                                'x' +
+                                                                (foodQuantity -
+                                                                    1);
+
+                                                            splitOrderFood[
+                                                                index
+                                                            ] = newFood;
+                                                        }
+
+                                                        dispatch(
+                                                            updateFood(
+                                                                splitOrderFood.join(
+                                                                    '\n'
+                                                                )
+                                                            )
                                                         );
                                                     }}
                                                 >
@@ -70,15 +82,15 @@ function OrderPage() {
                                                             food +
                                                             'x' +
                                                             (foodQuantity + 1);
-                                                        console.log(
-                                                            'New Food: ' +
-                                                                newFood
-                                                        );
+
                                                         splitOrderFood[index] =
                                                             newFood;
-                                                        console.log(
-                                                            'SplitOrderFood: ' +
-                                                                splitOrderFood
+                                                        dispatch(
+                                                            updateFood(
+                                                                splitOrderFood.join(
+                                                                    '\n'
+                                                                )
+                                                            )
                                                         );
                                                     }}
                                                 >

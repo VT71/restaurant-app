@@ -11,12 +11,15 @@ const customerSlice = createSlice({
     name: 'customerSlice',
     initialState,
     reducers: {
-        updateFood: (state, action) => {
+        addFood: (state, action) => {
             state.pendingOrder.food =
                 state.pendingOrder.food + '\n' + action.payload + 'x1';
+        },
+        updateFood: (state, action) => {
+            state.pendingOrder.food = action.payload;
         },
     },
 });
 
-export const { updateFood } = customerSlice.actions;
+export const { addFood, updateFood } = customerSlice.actions;
 export default customerSlice.reducer;
