@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTable } from '../../store/slices/TableSlice';
+import { nanoid } from '@reduxjs/toolkit';
 //import Table from "../Table";
 
 function CustomerPage() {
@@ -12,11 +13,14 @@ function CustomerPage() {
         name: '',
         number: '',
         status: 'Waiter Called',
+        food: '',
+        comment: '',
+        id: nanoid(),
     });
 
     let navigate = useNavigate();
-    const routeChange = (tableNumber) => {
-        let path = `/menu?table=${tableNumber}`;
+    const routeChange = (tableId) => {
+        let path = `/tables/${tableId}/menu`;
         navigate(path);
     };
 
@@ -27,10 +31,10 @@ function CustomerPage() {
                 <form>
                     <div className='col col-sm-6 col-md-4 m-auto text-center'>
                         <h2>Select your table number 🍽</h2>
-                        <div class='mb-3'>
+                        <div className='mb-3'>
                             <label
-                                for='customerNameInput'
-                                class='form-label float-start'
+                                htmlFor='customerNameInput'
+                                className='form-label float-start'
                             >
                                 Your Name
                             </label>
@@ -49,10 +53,10 @@ function CustomerPage() {
                             />
                         </div>
 
-                        <div class='mb-3'>
+                        <div className='mb-3'>
                             <label
-                                for='customerTableNoInput'
-                                class='form-label float-start'
+                                htmlFor='customerTableNoInput'
+                                className='form-label float-start'
                             >
                                 Table Number
                             </label>
@@ -79,7 +83,7 @@ function CustomerPage() {
                                 console.log(
                                     ' newTable: ' + JSON.stringify(newTable)
                                 );
-                                routeChange(newTable.number);
+                                routeChange(newTable.id);
                             }}
                         >
                             Submit form

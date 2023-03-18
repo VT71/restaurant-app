@@ -1,13 +1,17 @@
 import { nanoid } from '@reduxjs/toolkit';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateFood } from '../../store/slices/CustomerSlice';
+import { updateFood, addCustomerOrder } from '../../store/slices/CustomerSlice';
+import { useParams } from 'react-router';
 
 function OrderPage() {
     const dispatch = useDispatch();
-    const orderFood = useSelector((state) => state.customer.pendingOrder.food);
+    const pendingOrder = useSelector((state) => state.customer.pendingOrder);
+    const orderFood = pendingOrder.food;
     const splitOrderFood = orderFood.split('\n');
     console.log(orderFood);
+    const params = useParams();
+    const tableId = params.tableid;
 
     return (
         <div>
@@ -105,6 +109,14 @@ function OrderPage() {
                     </ol>
                 </div>
             </div>
+            <button
+                className='btn btn-primary'
+                onClick={() => {
+                    dispatch(addCustomerOrder(tableId, pendingOrder));
+                }}
+            >
+                Order
+            </button>
         </div>
     );
 }

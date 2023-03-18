@@ -1,17 +1,15 @@
 import React from 'react';
 import '../../App.css';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFood } from '../../store/slices/CustomerSlice';
 import { Link } from 'react-router-dom';
 
 function MenuPage() {
-    const [queryParameters] = useSearchParams();
     const customerPage = window.location.pathname;
-    const pendingOrderFood = useSelector(
-        (state) => state.customer.pendingOrder.food
-    );
     const dispatch = useDispatch();
+    const params = useParams();
+    const tableId = params.tableid;
 
     return (
         <div className='d-flex'>
@@ -32,7 +30,7 @@ function MenuPage() {
                         <h2 className='text-center'>Menu</h2>
                     </div>
                 </div>
-                <Link to='/order'>
+                <Link to={`/tables/${tableId}/order`}>
                     <div className='nav-rail-item d-flex align-items-center justify-content-center'>
                         <div className='d-flex flex-column justify-content-center align-items-center'>
                             <div className='nav-icon-container d-flex justify-content-center align-items-center'>
@@ -56,7 +54,6 @@ function MenuPage() {
                 </div>
             </div>
             <div className='menu-page'>
-                <h2>Table: {queryParameters.get('table')}</h2>
                 <h1 className='mt-4 text-center'>Menu</h1>
                 <div className='menu-container d-flex flex-wrap justify-content-around'>
                     <div className='customCard'>

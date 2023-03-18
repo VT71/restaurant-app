@@ -17,8 +17,16 @@ function App() {
                 <Route path='/waiter' exact element={<WaiterPage />} />
                 <Route path='/kitchen' exact element={<KitchenPage />} />
                 <Route path='/customer' exact element={<CustomerPage />} />
-                <Route path='/menu' exact element={<MenuPage />} />
-                <Route path='/order' exact element={<OrderPage />} />
+                <Route
+                    path='/tables/:tableid/menu'
+                    exact
+                    element={<MenuPage />}
+                />
+                <Route
+                    path='/tables/:tableid/order'
+                    exact
+                    element={<OrderPage />}
+                />
             </Routes>
         </Router>
     );
