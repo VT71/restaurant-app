@@ -3,7 +3,7 @@ import '../../App.css';
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTable } from '../../store/slices/TableSlice';
+import { addCustomerTable } from '../../store/slices/CustomerSlice';
 import { nanoid } from '@reduxjs/toolkit';
 //import Table from "../Table";
 
@@ -79,10 +79,7 @@ function CustomerPage() {
                             className='btn btn-primary'
                             type='submit'
                             onClick={() => {
-                                dispatch(addTable(newTable));
-                                console.log(
-                                    ' newTable: ' + JSON.stringify(newTable)
-                                );
+                                dispatch(addCustomerTable(newTable));
                                 routeChange(newTable.id);
                             }}
                         >

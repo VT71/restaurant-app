@@ -1,8 +1,9 @@
 import React from 'react';
 import '../../App.css';
+import { useEffect, useState } from 'react';
 import { useSearchParams, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addFood } from '../../store/slices/CustomerSlice';
+import { addCustomerOrder } from '../../store/slices/CustomerSlice';
 import { Link } from 'react-router-dom';
 
 function MenuPage() {
@@ -10,6 +11,41 @@ function MenuPage() {
     const dispatch = useDispatch();
     const params = useParams();
     const tableId = params.tableid;
+
+    const [customerTable, setCustomerTable] = useState({});
+
+    const updateCustomerTable = async (modifiedTable) => {
+        console.log('MODIFIED TABLE: ' + JSON.stringify(modifiedTable));
+        const response = await fetch(
+            `http://localhost:3333/tables/${modifiedTable.id}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify(modifiedTable),
+            }
+        );
+        setCustomerTable(modifiedTable);
+        return response;
+    };
+
+    const fetchCustomerTable = async (tableId) => {
+        const response = await fetch(`http://localhost:3333/tables/${tableId}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setCustomerTable(data);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+        return response;
+    };
+
+    useEffect(() => {
+        console.log('FETCHING THE UPDATED TABLE');
+        fetchCustomerTable(tableId);
+    }, []);
 
     return (
         <div className='d-flex'>
@@ -79,7 +115,33 @@ function MenuPage() {
                         <div
                             className='cardButton d-flex justify-content-center align-items-center'
                             onClick={() => {
-                                dispatch(addFood('Card Food'));
+                                const modifiedTable = {};
+                                console.log(
+                                    'BEFORE BEFORE UPDATING API TABLE: ' +
+                                        JSON.stringify(customerTable)
+                                );
+                                // setCustomerTable({
+                                //     ...customerTable,
+                                //     pendingOrder: {
+                                //         ...customerTable.pendingOrder,
+                                //         food:
+                                //             customerTable.pendingOrder.food +
+                                //             'CardFood x1\n',
+                                //     },
+                                // });
+                                console.log(
+                                    'BEFORE UPDATING API TABLE: ' +
+                                        JSON.stringify(customerTable)
+                                );
+                                updateCustomerTable({
+                                    ...customerTable,
+                                    pendingOrder: {
+                                        ...customerTable.pendingOrder,
+                                        food:
+                                            customerTable.pendingOrder.food +
+                                            'CardFood x1\n',
+                                    },
+                                });
                             }}
                         >
                             <p className='fw-bold'>Order +</p>
