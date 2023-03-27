@@ -97,10 +97,10 @@
       "name": "Victor4",
       "number": "6",
       "status": "Waiter Called",
-      "food": "CardFood x3\nCardFood x3\nCardFood x3\nCardFood x3",
-      "comment": "",
+      "food": "CardFood x1\nCardFood x4\nCardFood x1\nCardFood x1\nCardFood x1\nCardFood x1\nCardFood x1\nCardFood x3\nCardFood x9\nCardFood x4\n",
+      "comment": "COMMMNNXX2 YYY",
       "pendingOrder": {
-        "food": [],
+        "food": "",
         "comment": ""
       },
       "id": "zdc0IqHLCnnG7WE-YobEQ"

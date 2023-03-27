@@ -1,5 +1,5 @@
 import { nanoid } from '@reduxjs/toolkit';
-import React from 'react';
+import React, { useTransition } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFood, addCustomerOrder } from '../../store/slices/CustomerSlice';
 import { useParams } from 'react-router';
@@ -15,7 +15,7 @@ function OrderPage() {
         const response = await fetch(`http://localhost:3333/tables/${tableId}`)
             .then((response) => response.json())
             .then((data) => {
-                orderFood = data.pendingOrder.food;
+                orderFood = data.pendingOrder.food.split('\n');
                 let tempFoodArray = [];
                 if (orderFood.length > 0) {
                     orderFood.map((item) => {
@@ -24,6 +24,7 @@ function OrderPage() {
                 }
                 setFoodList([...tempFoodArray]);
                 setCustomerTable({ ...data });
+                setCustomerComments(data.pendingOrder.comment);
                 return data;
             })
             .catch((err) => {
@@ -48,27 +49,60 @@ function OrderPage() {
 
     const [customerTable, setCustomerTable] = useState({});
     const [foodList, setFoodList] = useState([]);
+    const [customerComments, setCustomerComments] = useState('');
 
     useEffect(() => {
+        console.log('INITIAL USE EFFECT');
         fetchCustomerTable(tableId);
     }, []);
 
     useEffect(() => {
-        console.log('USE EFFECT IF FOODLIST CHANGES');
-        let tempArray = [];
+        console.log('FOOD LIST USE EFFECT');
+        let tempString = '';
         if (foodList.length > 0) {
-            console.log('EXTRACTING FOODLIST CONTENTS');
             for (let i = 0; i < foodList.length; i++) {
-                tempArray.push(foodList[i].contents);
-            }
-            if (Object.keys(customerTable).length > 0) {
-                updateCustomerTable({
-                    ...customerTable,
-                    pendingOrder: { food: tempArray, comment: '' },
-                });
+                if (foodList[i].contents.length > 0) {
+                    tempString += foodList[i].contents + '\n';
+                }
             }
         }
+        if (Object.keys(customerTable).length > 0) {
+            updateCustomerTable({
+                ...customerTable,
+                pendingOrder: {
+                    food: tempString,
+                    comment: customerTable.pendingOrder.comment,
+                },
+            });
+            setCustomerTable({
+                ...customerTable,
+                pendingOrder: {
+                    food: tempString,
+                    comment: customerTable.pendingOrder.comment,
+                },
+            });
+        }
     }, [foodList]);
+
+    useEffect(() => {
+        console.log('CUSTOMER COMMENTS USE EFFECT');
+        if (Object.keys(customerTable).length > 0) {
+            updateCustomerTable({
+                ...customerTable,
+                pendingOrder: {
+                    food: customerTable.pendingOrder.food,
+                    comment: customerComments,
+                },
+            });
+            setCustomerTable({
+                ...customerTable,
+                pendingOrder: {
+                    food: customerTable.pendingOrder.food,
+                    comment: customerComments,
+                },
+            });
+        }
+    }, [customerComments]);
 
     return (
         <div>
@@ -198,6 +232,20 @@ function OrderPage() {
                             </div>
                         </li>
                     </ol>
+                    <div className='form-floating mt-3'>
+                        <textarea
+                            className='form-control'
+                            placeholder='Leave your comments here'
+                            id='customerOrderCommentsInput'
+                            onChange={(e) =>
+                                setCustomerComments(e.target.value)
+                            }
+                            value={customerComments}
+                        ></textarea>
+                        <label htmlFor='customerOrderCommentsInput'>
+                            Comments
+                        </label>
+                    </div>
                 </div>
             </div>
             <button
@@ -213,17 +261,38 @@ function OrderPage() {
 
                             updateCustomerTable({
                                 ...customerTable,
-                                food: tempArray.join('\n'),
-                                pendingOrder: { food: [], comment: '' },
+                                food: customerTable.food + tempArray.join('\n'),
+                                comment:
+                                    customerTable.comment +
+                                    ' ' +
+                                    customerComments,
+                                pendingOrder: {
+                                    food: '',
+                                    comment: '',
+                                },
                             });
-                            setFoodList([]);
+
                             setCustomerTable({
                                 ...customerTable,
-                                food: tempArray.join('\n'),
-                                pendingOrder: { food: [], comment: '' },
+                                food: customerTable.food + tempArray.join('\n'),
+                                comment:
+                                    customerTable.comment +
+                                    ' ' +
+                                    customerComments,
+                                pendingOrder: {
+                                    food: '',
+                                    comment: '',
+                                },
                             });
+                            setFoodList([]);
+                            setCustomerComments('');
                         }
                     }
+                    // console.log(
+                    //     'CUSTOMER TABLE: ' + JSON.stringify(customerTable)
+                    // );
+                    // console.log('CUSTOMER FOOD LIST: ' + foodList);
+                    // console.log('CUSTOMER COMMENTS: ' + customerComments);
                 }}
             >
                 Order

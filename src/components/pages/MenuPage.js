@@ -15,7 +15,6 @@ function MenuPage() {
     const [customerTable, setCustomerTable] = useState({});
 
     const updateCustomerTable = async (modifiedTable) => {
-        console.log('MODIFIED TABLE: ' + JSON.stringify(modifiedTable));
         const response = await fetch(
             `http://localhost:3333/tables/${modifiedTable.id}`,
             {
@@ -43,7 +42,6 @@ function MenuPage() {
     };
 
     useEffect(() => {
-        console.log('FETCHING THE UPDATED TABLE');
         fetchCustomerTable(tableId);
     }, []);
 
