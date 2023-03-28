@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCustomerTable } from '../../store/slices/CustomerSlice';
 import { nanoid } from '@reduxjs/toolkit';
+import { TextField, Button } from '@mui/material';
 //import Table from "../Table";
 
 function CustomerPage() {
@@ -25,14 +26,26 @@ function CustomerPage() {
     };
 
     return (
-        <div>
-            <h1 className='mt-4 mb-5 text-center'>Customer Page</h1>
+        <div className='customer-page-container'>
             <div className='row'>
                 <form>
-                    <div className='col col-sm-6 col-md-4 m-auto text-center'>
-                        <h2>Select your table number 🍽</h2>
-                        <div className='mb-3'>
-                            <label
+                    <div className='col col-8 col-sm-6 col-md-4 m-auto text-center'>
+                        <h2>Select your Table Number</h2>
+                        <div className='my-3'>
+                            <TextField
+                                required
+                                fullWidth
+                                id='outlined-basic'
+                                label='Your Name'
+                                variant='outlined'
+                                onChange={(e) =>
+                                    setNewTable({
+                                        ...newTable,
+                                        name: e.target.value,
+                                    })
+                                }
+                            />
+                            {/* <label
                                 htmlFor='customerNameInput'
                                 className='form-label float-start'
                             >
@@ -50,11 +63,25 @@ function CustomerPage() {
                                         name: e.target.value,
                                     })
                                 }
-                            />
+                            /> */}
                         </div>
 
                         <div className='mb-3'>
-                            <label
+                            <TextField
+                                required
+                                fullWidth
+                                id='outlined-basic'
+                                label='Table Number'
+                                variant='outlined'
+                                type='number'
+                                onChange={(e) =>
+                                    setNewTable({
+                                        ...newTable,
+                                        number: e.target.value,
+                                    })
+                                }
+                            />
+                            {/* <label
                                 htmlFor='customerTableNoInput'
                                 className='form-label float-start'
                             >
@@ -72,10 +99,10 @@ function CustomerPage() {
                                         number: e.target.value,
                                     })
                                 }
-                            />
+                            /> */}
                         </div>
 
-                        <button
+                        {/* <button
                             className='btn btn-primary'
                             type='submit'
                             onClick={() => {
@@ -84,7 +111,8 @@ function CustomerPage() {
                             }}
                         >
                             Submit form
-                        </button>
+                        </button> */}
+                        <Button variant='contained'>Contained</Button>
                     </div>
                 </form>
             </div>

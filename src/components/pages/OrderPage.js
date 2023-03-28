@@ -5,6 +5,7 @@ import { updateFood, addCustomerOrder } from '../../store/slices/CustomerSlice';
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { update } from 'lodash';
+import NavigationRail from '../NavigationRail';
 
 function OrderPage() {
     const params = useParams();
@@ -105,61 +106,100 @@ function OrderPage() {
     }, [customerComments]);
 
     return (
-        <div>
-            <p>Order:</p> {orderFood}
-            <div className='card'>
-                <div className='card-body'>
-                    <h2>Your Selection:</h2>
-                    <ol className='list-group list-group-numbered'>
-                        <li className='list-group-item d-flex'>
-                            <div className='text-start ms-2 w-100'>
-                                <h5>Order</h5>
-                                {foodList.map((item) => {
-                                    if (item.contents !== '') {
-                                        const food = item.contents.replace(
-                                            /x\d+/,
-                                            ''
-                                        );
-                                        const foodId = item.id;
-                                        const foodQuantity = parseInt(
-                                            item.contents
-                                                .match(/x\d+/)[0]
-                                                .substring(
-                                                    1,
-                                                    item.contents.match(
-                                                        /x\d+/
-                                                    )[0].length
-                                                ),
-                                            10
-                                        );
+        <div className='d-flex order-page-container'>
+            <NavigationRail />
+            <div className='order-page'>
+                <p>Order:</p> {orderFood}
+                <div className='card'>
+                    <div className='card-body'>
+                        <h2>Your Selection:</h2>
+                        <ol className='list-group list-group-numbered'>
+                            <li className='list-group-item d-flex'>
+                                <div className='text-start ms-2 w-100'>
+                                    <h5>Order</h5>
+                                    {foodList.map((item) => {
+                                        if (item.contents !== '') {
+                                            const food = item.contents.replace(
+                                                /x\d+/,
+                                                ''
+                                            );
+                                            const foodId = item.id;
+                                            const foodQuantity = parseInt(
+                                                item.contents
+                                                    .match(/x\d+/)[0]
+                                                    .substring(
+                                                        1,
+                                                        item.contents.match(
+                                                            /x\d+/
+                                                        )[0].length
+                                                    ),
+                                                10
+                                            );
 
-                                        return (
-                                            <div
-                                                key={nanoid()}
-                                                className='d-flex justify-content-between align-items-center fw-bold py-2'
-                                            >
-                                                <h5 className='d-inline'>
-                                                    {food}
-                                                </h5>
-                                                <div className='foodQuantityControl d-flex align-items-center'>
-                                                    <button
-                                                        type='button'
-                                                        className='btn btn-outline-primary'
-                                                        onClick={() => {
-                                                            if (
-                                                                foodQuantity ==
-                                                                1
-                                                            ) {
-                                                                setFoodList(
-                                                                    foodList.filter(
-                                                                        (
-                                                                            item
-                                                                        ) =>
-                                                                            item.id !=
-                                                                            foodId
-                                                                    )
-                                                                );
-                                                            } else {
+                                            return (
+                                                <div
+                                                    key={nanoid()}
+                                                    className='d-flex justify-content-between align-items-center fw-bold py-2'
+                                                >
+                                                    <h5 className='d-inline'>
+                                                        {food}
+                                                    </h5>
+                                                    <div className='foodQuantityControl d-flex align-items-center'>
+                                                        <button
+                                                            type='button'
+                                                            className='btn btn-outline-primary'
+                                                            onClick={() => {
+                                                                if (
+                                                                    foodQuantity ==
+                                                                    1
+                                                                ) {
+                                                                    setFoodList(
+                                                                        foodList.filter(
+                                                                            (
+                                                                                item
+                                                                            ) =>
+                                                                                item.id !=
+                                                                                foodId
+                                                                        )
+                                                                    );
+                                                                } else {
+                                                                    const tempArray =
+                                                                        foodList.map(
+                                                                            (
+                                                                                item
+                                                                            ) => {
+                                                                                if (
+                                                                                    item.id ==
+                                                                                    foodId
+                                                                                ) {
+                                                                                    return {
+                                                                                        contents:
+                                                                                            food +
+                                                                                            'x' +
+                                                                                            (foodQuantity -
+                                                                                                1),
+                                                                                        id: foodId,
+                                                                                    };
+                                                                                } else {
+                                                                                    return item;
+                                                                                }
+                                                                            }
+                                                                        );
+                                                                    setFoodList(
+                                                                        tempArray
+                                                                    );
+                                                                }
+                                                            }}
+                                                        >
+                                                            -
+                                                        </button>
+                                                        <h5 className='m-auto'>
+                                                            {foodQuantity}
+                                                        </h5>
+                                                        <button
+                                                            type='button'
+                                                            className='btn btn-outline-primary'
+                                                            onClick={() => {
                                                                 const tempArray =
                                                                     foodList.map(
                                                                         (
@@ -173,7 +213,7 @@ function OrderPage() {
                                                                                     contents:
                                                                                         food +
                                                                                         'x' +
-                                                                                        (foodQuantity -
+                                                                                        (foodQuantity +
                                                                                             1),
                                                                                     id: foodId,
                                                                                 };
@@ -185,118 +225,88 @@ function OrderPage() {
                                                                 setFoodList(
                                                                     tempArray
                                                                 );
-                                                            }
-                                                        }}
-                                                    >
-                                                        -
-                                                    </button>
-                                                    <h5 className='m-auto'>
-                                                        {foodQuantity}
-                                                    </h5>
-                                                    <button
-                                                        type='button'
-                                                        className='btn btn-outline-primary'
-                                                        onClick={() => {
-                                                            const tempArray =
-                                                                foodList.map(
-                                                                    (item) => {
-                                                                        if (
-                                                                            item.id ==
-                                                                            foodId
-                                                                        ) {
-                                                                            return {
-                                                                                contents:
-                                                                                    food +
-                                                                                    'x' +
-                                                                                    (foodQuantity +
-                                                                                        1),
-                                                                                id: foodId,
-                                                                            };
-                                                                        } else {
-                                                                            return item;
-                                                                        }
-                                                                    }
-                                                                );
-                                                            setFoodList(
-                                                                tempArray
-                                                            );
-                                                        }}
-                                                    >
-                                                        +
-                                                    </button>
+                                                            }}
+                                                        >
+                                                            +
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        );
-                                    }
-                                })}
-                            </div>
-                        </li>
-                    </ol>
-                    <div className='form-floating mt-3'>
-                        <textarea
-                            className='form-control'
-                            placeholder='Leave your comments here'
-                            id='customerOrderCommentsInput'
-                            onChange={(e) =>
-                                setCustomerComments(e.target.value)
-                            }
-                            value={customerComments}
-                        ></textarea>
-                        <label htmlFor='customerOrderCommentsInput'>
-                            Comments
-                        </label>
+                                            );
+                                        }
+                                    })}
+                                </div>
+                            </li>
+                        </ol>
+                        <div className='form-floating mt-3'>
+                            <textarea
+                                className='form-control'
+                                placeholder='Leave your comments here'
+                                id='customerOrderCommentsInput'
+                                onChange={(e) =>
+                                    setCustomerComments(e.target.value)
+                                }
+                                value={customerComments}
+                            ></textarea>
+                            <label htmlFor='customerOrderCommentsInput'>
+                                Comments
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <button
-                className='btn btn-primary'
-                onClick={() => {
-                    if (foodList.length > 0) {
-                        if (Object.keys(customerTable).length > 0) {
-                            let tempArray = [];
+                <button
+                    className='btn btn-primary'
+                    onClick={() => {
+                        if (foodList.length > 0) {
+                            if (Object.keys(customerTable).length > 0) {
+                                let tempArray = [];
 
-                            for (let i = 0; i < foodList.length; i++) {
-                                tempArray.push(foodList[i].contents);
+                                for (let i = 0; i < foodList.length; i++) {
+                                    tempArray.push(foodList[i].contents);
+                                }
+
+                                updateCustomerTable({
+                                    ...customerTable,
+                                    food:
+                                        customerTable.food +
+                                        tempArray.join('\n'),
+                                    comment:
+                                        customerTable.comment +
+                                        ' ' +
+                                        customerComments,
+                                    pendingOrder: {
+                                        food: '',
+                                        comment: '',
+                                    },
+                                });
+
+                                setCustomerTable({
+                                    ...customerTable,
+                                    food:
+                                        customerTable.food +
+                                        tempArray.join('\n'),
+                                    comment:
+                                        customerTable.comment +
+                                        ' ' +
+                                        customerComments,
+                                    pendingOrder: {
+                                        food: '',
+                                        comment: '',
+                                    },
+                                });
+                                setFoodList([]);
+                                setCustomerComments('');
                             }
-
-                            updateCustomerTable({
-                                ...customerTable,
-                                food: customerTable.food + tempArray.join('\n'),
-                                comment:
-                                    customerTable.comment +
-                                    ' ' +
-                                    customerComments,
-                                pendingOrder: {
-                                    food: '',
-                                    comment: '',
-                                },
-                            });
-
-                            setCustomerTable({
-                                ...customerTable,
-                                food: customerTable.food + tempArray.join('\n'),
-                                comment:
-                                    customerTable.comment +
-                                    ' ' +
-                                    customerComments,
-                                pendingOrder: {
-                                    food: '',
-                                    comment: '',
-                                },
-                            });
-                            setFoodList([]);
-                            setCustomerComments('');
                         }
-                    }
-                    // console.log(
-                    //     'CUSTOMER TABLE: ' + JSON.stringify(customerTable)
-                    // );
-                    // console.log('CUSTOMER FOOD LIST: ' + foodList);
-                    // console.log('CUSTOMER COMMENTS: ' + customerComments);
-                }}
-            >
-                Order
-            </button>
+                        // console.log(
+                        //     'CUSTOMER TABLE: ' + JSON.stringify(customerTable)
+                        // );
+                        // console.log('CUSTOMER FOOD LIST: ' + foodList);
+                        // console.log('CUSTOMER COMMENTS: ' + customerComments);
+                    }}
+                >
+                    Order
+                </button>
+            </div>
         </div>
     );
 }

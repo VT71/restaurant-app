@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 .App {
     text-align: center;
 }
@@ -37,6 +43,12 @@
     }
 }
 
+html,
+body,
+#root {
+    height: 100%;
+}
+
 .newline {
     white-space: pre-line;
 }
@@ -59,11 +71,23 @@
     display: none;
 }
 
-.menu-page {
+.menu-page,
+.order-page {
+    width: 100%;
+    margin-left: 80px;
+}
+
+.menu-page-container,
+.order-page-container {
     background-color: aliceblue;
     width: 100%;
-    height: 100%;
-    padding-left: 80px;
+    min-height: 100%;
+}
+
+.menu-container {
+    margin-left: 100px;
+    margin-right: 100px;
+    gap: 20px;
 }
 
 .foodImg {
@@ -83,32 +107,22 @@
     height: 65px;
 }
 
-.menu-category {
-    width: 30%;
-    margin-bottom: 30px;
-}
-
-.menu-container {
-    margin: 0 100px 0 100px;
-}
-
-.customCard {
+.foodCard.category {
     transition: box-shadow 0.3s;
     background-color: white;
     color: #3b3440;
-    width: 23%;
+    width: 200px;
     height: fit-content;
     border-radius: 12px;
-    margin-top: 2em;
 }
 
-.customCard:hover {
+.foodCard.category:hover {
     cursor: pointer;
     transition: box-shadow 0.3s;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.customCard:active {
+.foodCard.category:active {
     box-shadow: 0 0 0 transparent;
 }
 
@@ -196,4 +210,13 @@ i {
     height: 32px;
     width: 56px;
     border-radius: 16px;
+}
+
+.MuiButton-contained {
+    border-radius: 18.25px;
+}
+
+.customer-page-container {
+    background-color: #fffbf6;
+    height: 100vh;
 }
