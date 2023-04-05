@@ -8,25 +8,34 @@ import KitchenPage from './components/pages/KitchenPage';
 import CustomerPage from './components/pages/CustomerPage';
 import MenuPage from './components/pages/MenuPage';
 import OrderPage from './components/pages/OrderPage';
-import { createTheme } from '@mui/material/styles';
-import { ThemeProvider } from '@emotion/react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#93A603',
+            main: '#1ED96F',
         },
         secondary: {
-            main: '#F28F38',
+            main: '#010B40',
         },
-        contrastThreshold: 4.5,
     },
     components: {
         MuiButton: {
             styleOverrides: {
                 root: {},
                 contained: {
-                    'border-radius': '18.25px',
+                    borderRadius: '20px',
+                    height: '40px',
+                    paddingLeft: '24px',
+                    paddingRight: '24px',
+                },
+                containedPrimary: {
+                    ':hover': {
+                        backgroundColor: '#1cc967',
+                    },
+                    ':active': {
+                        backgroundColor: '#18b55c',
+                    },
                 },
             },
         },
