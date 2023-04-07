@@ -107,35 +107,47 @@ body,
     height: 65px;
 }
 
-.foodCard.category {
+.foodCard {
     transition: box-shadow 0.3s;
     background-color: white;
     color: #3b3440;
     width: 200px;
-    height: fit-content;
+    height: 350px;
     border-radius: 12px;
+    position: relative;
+    padding: 0;
 }
 
-.foodCard.category:hover {
+.foodCard:hover {
     cursor: pointer;
     transition: box-shadow 0.3s;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.foodCard.category:active {
+.foodCard:active {
     box-shadow: 0 0 0 transparent;
 }
 
 .cardImgContainer {
     overflow: hidden;
     border-radius: 12px;
+    height: 45%;
 }
 
 .cardTextContainer {
     padding: 10px 16px 0 16px;
+    height: 33%;
+    text-align: center;
+    overflow: scroll;
 }
 
-.cardButton {
+.cardImgContainer img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.foodCardButton {
     font-size: 14px;
     background-color: #c4d7ed;
     width: fit-content;
@@ -144,15 +156,24 @@ body,
     border-radius: 20px;
     color: #183152;
     margin: 10px 16px 10px 16px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%);
 }
 
-.cardButton p {
+.foodCardButton p {
     margin: 0;
 }
 
-.cardButton.two {
+.foodCardButton.two {
     background-color: #183152;
     color: #e1e6fa;
+}
+
+.foodCardButton.category {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .nav-rail {

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addCustomerOrder } from '../../store/slices/CustomerSlice';
 import { Link } from 'react-router-dom';
 import NavigationRail from '../NavigationRail';
+import FoodCard from '../FoodCard';
 
 function MenuPage() {
     const customerPage = window.location.pathname;
@@ -52,7 +53,7 @@ function MenuPage() {
             <div className='menu-page'>
                 <h1 className='mt-4 text-center'>Menu</h1>
                 <div className='menu-container d-flex flex-wrap justify-content-around'>
-                    <div className='foodCard category'>
+                    <div className='foodCard'>
                         <div className='cardImgContainer'>
                             <img
                                 src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2799&q=80'
@@ -107,7 +108,61 @@ function MenuPage() {
                             <p className='fw-bold'>Order +</p>
                         </div>
                     </div>
-                    <div className='foodCard category'>
+                    <FoodCard
+                        props={{
+                            type: 'category',
+                            title: 'Starters',
+                            imgName: 'starters-category-img.jpg',
+                            description:
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        }}
+                    />
+                    <FoodCard
+                        props={{
+                            type: 'category',
+                            title: 'Soups',
+                            imgName: 'soup-category-img.jpg',
+                            description:
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        }}
+                    />
+                    <FoodCard
+                        props={{
+                            type: 'category',
+                            title: 'Salads',
+                            imgName: 'salads-category-img.jpg',
+                            description:
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        }}
+                    />
+                    <FoodCard
+                        props={{
+                            type: 'category',
+                            title: 'Pasta',
+                            imgName: 'pasta-category-img.jpg',
+                            description:
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        }}
+                    />
+                    <FoodCard
+                        props={{
+                            type: 'category',
+                            title: 'Mains',
+                            imgName: 'mains-category-img.jpg',
+                            description:
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        }}
+                    />
+                    <FoodCard
+                        props={{
+                            type: 'category',
+                            title: 'Desserts',
+                            imgName: 'desserts-category-img.jpg',
+                            description:
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        }}
+                    />
+                    <div className='foodCard'>
                         <div className='cardImgContainer'>
                             <img
                                 src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2799&q=80'
@@ -131,31 +186,7 @@ function MenuPage() {
                             <p className='fw-bold'>More</p>
                         </div>
                     </div>
-                    <div className='foodCard category'>
-                        <div className='cardImgContainer'>
-                            <img
-                                src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2799&q=80'
-                                className='card-img-top'
-                                alt='...'
-                            />
-                        </div>
-
-                        <div className='cardTextContainer'>
-                            <h5 className='card-title'>Card title</h5>
-                            <div>
-                                <p>Ingredients</p>
-                                <ul>
-                                    <li>Ingredient1</li>
-                                    <li>Ingredient2</li>
-                                    <li>Ingredient3</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className='cardButton d-flex justify-content-center align-items-center'>
-                            <p className='fw-bold'>More</p>
-                        </div>
-                    </div>
-                    <div className='foodCard category'>
+                    <div className='foodCard'>
                         <div className='cardImgContainer'>
                             <img
                                 src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2799&q=80'
