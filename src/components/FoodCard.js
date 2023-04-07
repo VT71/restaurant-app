@@ -1,9 +1,24 @@
+import { lowerCase } from 'lodash';
 import React from 'react';
+import { useNavigate } from 'react-router';
 
 function FoodCard({ props }) {
-    console.log('PROPS.imgPath: ' + typeof props.imgPath);
+    const navigate = useNavigate();
+    const routeChange = () => {
+        let path = props.location + '/categories/' + lowerCase(props.title);
+        console.log('path: ' + path);
+        navigate(path);
+    };
+
     return (
-        <div className='foodCard'>
+        <div
+            className='foodCard'
+            onClick={() => {
+                if (props.type === 'category') {
+                    routeChange();
+                }
+            }}
+        >
             <div className='cardImgContainer'>
                 <img
                     src={require(`../assets/images/${props.imgName}`)}
@@ -22,8 +37,15 @@ function FoodCard({ props }) {
                         ? 'foodCardButton category d-flex justify-content-center align-items-center'
                         : 'foodCardButton d-flex justify-content-center align-items-center'
                 }
+                onClick={() => {
+                    if (props.type === 'category') {
+                        routeChange();
+                    }
+                }}
             >
-                <p className='fw-bold'>More</p>
+                <p className='fw-bold'>
+                    {props === 'category' ? 'More' : 'Order'}
+                </p>
             </div>
         </div>
     );

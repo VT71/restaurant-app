@@ -8,6 +8,7 @@ import KitchenPage from './components/pages/KitchenPage';
 import CustomerPage from './components/pages/CustomerPage';
 import MenuPage from './components/pages/MenuPage';
 import OrderPage from './components/pages/OrderPage';
+import CategoryPage from './components/pages/CategoryPage';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -55,6 +56,11 @@ function App() {
                         path='/tables/:tableid/menu'
                         exact
                         element={<MenuPage />}
+                    />
+                    <Route
+                        path='/tables/:tableid/menu/categories/:foodCategory'
+                        exact
+                        element={<CategoryPage />}
                     />
                     <Route
                         path='/tables/:tableid/order'
