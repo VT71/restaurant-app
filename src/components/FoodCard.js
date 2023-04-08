@@ -40,6 +40,8 @@ function FoodCard({ props }) {
                 onClick={() => {
                     if (props.type === 'category') {
                         routeChange();
+                    } else if (props.type === 'food') {
+                        props.onClickFunction(props.title);
                     }
                 }}
             >

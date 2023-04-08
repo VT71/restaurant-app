@@ -11,6 +11,7 @@ function CategoryPage() {
     const foodCategory = params.foodCategory;
 
     const [customerTable, setCustomerTable] = useState({});
+    const [foodList, setFoodList] = useState([]);
 
     const updateCustomerTable = async (modifiedTable) => {
         const response = await fetch(
@@ -39,8 +40,34 @@ function CategoryPage() {
         return response;
     };
 
+    const fetchFoodList = async (foodCategory) => {
+        const response = await fetch(
+            `http://localhost:3333/foodList/${foodCategory}`
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                setFoodList(data.list);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+        return response;
+    };
+
+    const updateOrder = (foodName) => {
+        const modifiedTable = {};
+        updateCustomerTable({
+            ...customerTable,
+            pendingOrder: {
+                ...customerTable.pendingOrder,
+                food: customerTable.pendingOrder.food + foodName + ' x1\n',
+            },
+        });
+    };
+
     useEffect(() => {
         fetchCustomerTable(tableId);
+        fetchFoodList(foodCategory);
     }, []);
 
     return (
@@ -90,16 +117,17 @@ function CategoryPage() {
                             <p className='fw-bold'>Order +</p>
                         </div>
                     </div> */}
-                    <FoodCard
-                        props={{
-                            type: 'food',
-                            location: '',
-                            title: 'Eggplant Salad',
-                            imgName: 'eggplant-salad-img.jpg',
-                            description:
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                        }}
-                    />
+                    {foodList.map((item) => (
+                        <FoodCard
+                            props={{
+                                type: item.type,
+                                title: item.title,
+                                imgName: item.imgName,
+                                description: item.description,
+                                onClickFunction: updateOrder,
+                            }}
+                        />
+                    ))}
                 </div>
             </div>
         </div>
