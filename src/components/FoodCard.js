@@ -35,6 +35,7 @@ function FoodCard({ props }) {
                     routeChange();
                 } else if (props.type === 'food') {
                     props.onClickFunction(props.title);
+                    displaySuccessAlert();
                 }
             }}
         >
