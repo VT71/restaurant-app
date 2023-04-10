@@ -40,6 +40,15 @@ const theme = createTheme({
                 },
             },
         },
+        // MuiAlert: {
+        //     styleOverrides: {
+        //         standardSuccess: {
+        //             '.categoryFoodAddAlertSuccess': {
+        //                 display: 'none',
+        //             },
+        //         },
+        //     },
+        // },
     },
 });
 

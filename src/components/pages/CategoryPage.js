@@ -4,6 +4,8 @@ import NavigationRail from '../NavigationRail';
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { upperCase } from 'lodash';
+import { nanoid } from '@reduxjs/toolkit';
+import { Alert } from '@mui/material';
 
 function CategoryPage() {
     const params = useParams();
@@ -74,6 +76,20 @@ function CategoryPage() {
         <div className='d-flex category-page-container'>
             <NavigationRail />
             <div className='menu-page'>
+                <Alert
+                    sx={{
+                        opacity: '0',
+                        position: 'absolute',
+                        zIndex: '1',
+                        bottom: '10px',
+                        left: '-200px',
+                        transition: 'opacity 1.5s linear',
+                    }}
+                    id='startersFoodAddAlertSuccess'
+                    severity='success'
+                >
+                    Added to your order!
+                </Alert>
                 <h1 className='mt-4 text-center'>
                     {upperCase(foodCategory.charAt(0)) +
                         foodCategory.substring(1)}
@@ -119,6 +135,7 @@ function CategoryPage() {
                     </div> */}
                     {foodList.map((item) => (
                         <FoodCard
+                            key={nanoid()}
                             props={{
                                 type: item.type,
                                 title: item.title,
