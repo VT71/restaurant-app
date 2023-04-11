@@ -22,6 +22,33 @@ const theme = createTheme({
     },
     components: {
         MuiButton: {
+            variants: [
+                {
+                    props: { variant: 'filledTonal' },
+                    style: {
+                        backgroundColor: '#91edb9',
+                        borderRadius: '20px',
+                        maxHeight: '40px',
+                        minHeight: '40px',
+                        paddingLeft: '24px',
+                        paddingRight: '24px',
+                        fontSize: '14px',
+                    },
+                },
+                {
+                    props: { variant: 'filledTonalIcon' },
+                    style: {
+                        backgroundColor: '#baf5d4',
+                        borderRadius: '20px',
+                        maxHeight: '40px',
+                        maxWidth: '40px',
+                        minHeight: '40px',
+                        minWidth: '40px',
+                        paddingLeft: '16px',
+                        paddingRight: '16px',
+                    },
+                },
+            ],
             styleOverrides: {
                 root: {},
                 contained: {

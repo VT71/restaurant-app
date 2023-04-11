@@ -29,7 +29,12 @@ function OrderPage() {
                 let tempFoodArray = [];
                 if (orderFood.length > 0) {
                     orderFood.map((item) => {
-                        tempFoodArray.push({ contents: item, id: nanoid() });
+                        if (item !== '') {
+                            tempFoodArray.push({
+                                contents: item,
+                                id: nanoid(),
+                            });
+                        }
                     });
                 }
                 setFoodList([...tempFoodArray]);
@@ -62,12 +67,10 @@ function OrderPage() {
     const [customerComments, setCustomerComments] = useState('');
 
     useEffect(() => {
-        console.log('INITIAL USE EFFECT');
         fetchCustomerTable(tableId);
     }, []);
 
     useEffect(() => {
-        console.log('FOOD LIST USE EFFECT');
         let tempString = '';
         if (foodList.length > 0) {
             for (let i = 0; i < foodList.length; i++) {
@@ -95,7 +98,6 @@ function OrderPage() {
     }, [foodList]);
 
     useEffect(() => {
-        console.log('CUSTOMER COMMENTS USE EFFECT');
         if (Object.keys(customerTable).length > 0) {
             updateCustomerTable({
                 ...customerTable,
@@ -311,14 +313,11 @@ function OrderPage() {
                 </button> */}
 
                 <Card
-                    sx={{ width: '100%', 'border-radius': '12px' }}
-                    elevation={false}
+                    sx={{ width: '100%', borderRadius: '12px', shadow: '0' }}
+                    elevation={0}
                     className='pb-2'
                 >
-                    <CardContent
-                        sx={{ 'padding-bottom': '0' }}
-                        className='px-3'
-                    >
+                    <CardContent sx={{ paddingBottom: '0' }} className='px-3'>
                         <div className='text-start w-100'>
                             {foodList.map((item, index) => {
                                 if (item.contents !== '') {
@@ -339,18 +338,15 @@ function OrderPage() {
                                     );
 
                                     return (
-                                        <div>
+                                        <div key={nanoid()}>
                                             {index !== 0 ? <Divider /> : null}
                                             <div className='d-flex justify-content-between align-items-center'>
-                                                <div
-                                                    key={nanoid()}
-                                                    className='d-flex flex-column fw-bold py-2'
-                                                >
+                                                <div className='d-flex flex-column fw-bold py-2'>
                                                     <h5 className='d-inline'>
                                                         {food}
                                                     </h5>
                                                     <div className='foodQuantityControl d-flex align-items-center'>
-                                                        <button
+                                                        {/* <button
                                                             type='button'
                                                             className='btn btn-outline-primary'
                                                             onClick={() => {
@@ -384,6 +380,7 @@ function OrderPage() {
                                                                                             (foodQuantity -
                                                                                                 1),
                                                                                         id: foodId,
+                                                                                        key: nanoid(),
                                                                                     };
                                                                                 } else {
                                                                                     return item;
@@ -397,11 +394,62 @@ function OrderPage() {
                                                             }}
                                                         >
                                                             -
-                                                        </button>
+                                                        </button> */}
+                                                        <Button
+                                                            disableElevation
+                                                            variant='filledTonalIcon'
+                                                            onClick={() => {
+                                                                if (
+                                                                    foodQuantity ==
+                                                                    1
+                                                                ) {
+                                                                    setFoodList(
+                                                                        foodList.filter(
+                                                                            (
+                                                                                item
+                                                                            ) =>
+                                                                                item.id !=
+                                                                                foodId
+                                                                        )
+                                                                    );
+                                                                } else {
+                                                                    const tempArray =
+                                                                        foodList.map(
+                                                                            (
+                                                                                item
+                                                                            ) => {
+                                                                                if (
+                                                                                    item.id ==
+                                                                                    foodId
+                                                                                ) {
+                                                                                    return {
+                                                                                        contents:
+                                                                                            food +
+                                                                                            'x' +
+                                                                                            (foodQuantity -
+                                                                                                1),
+                                                                                        id: foodId,
+                                                                                        key: nanoid(),
+                                                                                    };
+                                                                                } else {
+                                                                                    return item;
+                                                                                }
+                                                                            }
+                                                                        );
+                                                                    setFoodList(
+                                                                        tempArray
+                                                                    );
+                                                                }
+                                                            }}
+                                                        >
+                                                            <span className='material-symbols-outlined'>
+                                                                remove
+                                                            </span>
+                                                        </Button>
                                                         <h5 className='m-auto'>
                                                             {foodQuantity}
                                                         </h5>
-                                                        <button
+                                                        {/* <button
                                                             type='button'
                                                             className='btn btn-outline-primary'
                                                             onClick={() => {
@@ -433,7 +481,42 @@ function OrderPage() {
                                                             }}
                                                         >
                                                             +
-                                                        </button>
+                                                        </button> */}
+                                                        <Button
+                                                            disableElevation
+                                                            variant='filledTonalIcon'
+                                                            onClick={() => {
+                                                                const tempArray =
+                                                                    foodList.map(
+                                                                        (
+                                                                            item
+                                                                        ) => {
+                                                                            if (
+                                                                                item.id ==
+                                                                                foodId
+                                                                            ) {
+                                                                                return {
+                                                                                    contents:
+                                                                                        food +
+                                                                                        'x' +
+                                                                                        (foodQuantity +
+                                                                                            1),
+                                                                                    id: foodId,
+                                                                                };
+                                                                            } else {
+                                                                                return item;
+                                                                            }
+                                                                        }
+                                                                    );
+                                                                setFoodList(
+                                                                    tempArray
+                                                                );
+                                                            }}
+                                                        >
+                                                            <span className='material-symbols-outlined'>
+                                                                add
+                                                            </span>
+                                                        </Button>
                                                     </div>
                                                 </div>
                                                 <div>£5.00</div>
@@ -452,7 +535,12 @@ function OrderPage() {
                         <Divider sx={{ color: 'black' }} />
                         <div className='d-flex justify-content-between align-items-center mt-3'>
                             <h2>Total:</h2>
-                            <h4>£{foodList.length * 5}</h4>
+                            <h4>
+                                £
+                                {foodList.length > 0 && foodList[0] !== ''
+                                    ? foodList.length * 5
+                                    : 0}
+                            </h4>
                         </div>
 
                         {/* <Typography

@@ -11,7 +11,8 @@ function NavigationRail() {
         const response = await fetch(`http://localhost:3333/tables/${tableId}`)
             .then((response) => response.json())
             .then((data) => {
-                return data;
+                data.status = 'Waiter Called';
+                updateCustomerTable(data);
             })
             .catch((err) => {
                 console.log(err.message);
@@ -73,7 +74,9 @@ function NavigationRail() {
             </Link>
             <div
                 className='nav-rail-item d-flex align-items-center justify-content-center'
-                onClick={() => {}}
+                onClick={() => {
+                    fetchCustomerTable(tableId);
+                }}
             >
                 <div className='d-flex flex-column justify-content-center align-items-center'>
                     <div className='nav-icon-container d-flex justify-content-center align-items-center'>

@@ -2,6 +2,7 @@ import { lowerCase } from 'lodash';
 import React from 'react';
 import { useNavigate } from 'react-router';
 import { Alert } from '@mui/material';
+import { Button } from '@mui/material';
 
 function FoodCard({ props }) {
     const navigate = useNavigate();
@@ -12,19 +13,19 @@ function FoodCard({ props }) {
     };
 
     const displaySuccessAlert = async () => {
-        document.getElementById('startersFoodAddAlertSuccess').style.left =
-            '95px';
-        document.getElementById('startersFoodAddAlertSuccess').style.opacity =
-            '1';
-        setTimeout(() => {
-            document.getElementById(
-                'startersFoodAddAlertSuccess'
-            ).style.opacity = '0';
-        }, 3000);
-        setTimeout(() => {
-            document.getElementById('startersFoodAddAlertSuccess').style.left =
-                '-200px';
-        }, 4500);
+        const foodAddSuccessAlert = document.getElementById(
+            'startersFoodAddAlertSuccess'
+        );
+        if (foodAddSuccessAlert !== null) {
+            foodAddSuccessAlert.style.left = '95px';
+            foodAddSuccessAlert.style.opacity = '1';
+            setTimeout(() => {
+                foodAddSuccessAlert.style.opacity = '0';
+            }, 3000);
+            setTimeout(() => {
+                foodAddSuccessAlert.style.left = '-200px';
+            }, 4500);
+        }
     };
 
     return (
@@ -51,7 +52,31 @@ function FoodCard({ props }) {
                 <div className='cardFoodDescription'>{props.description}</div>
             </div>
 
-            <div
+            <Button
+                sx={{
+                    position: 'absolute',
+                    bottom: '15px',
+                    left: '50%',
+                    transform: 'translate(-50%)',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                }}
+                disableElevation
+                variant='filledTonal'
+                onClick={() => {
+                    if (props.type === 'category') {
+                        routeChange();
+                    } else if (props.type === 'food') {
+                        props.onClickFunction(props.title);
+                        displaySuccessAlert();
+                    }
+                }}
+            >
+                <p className='fw-bold' style={{ margin: '0' }}>
+                    {props.type === 'category' ? 'More' : 'Order'}
+                </p>
+            </Button>
+            {/* <div
                 className={
                     props.type === 'category'
                         ? 'foodCardButton category d-flex justify-content-center align-items-center'
@@ -69,7 +94,7 @@ function FoodCard({ props }) {
                 <p className='fw-bold'>
                     {props.type === 'category' ? 'More' : 'Order'}
                 </p>
-            </div>
+            </div> */}
         </div>
     );
 }
