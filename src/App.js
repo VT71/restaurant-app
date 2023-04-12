@@ -14,10 +14,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#1ED96F',
+            main: '#2a6c0d',
         },
         secondary: {
-            main: '#010B40',
+            main: '#55624c',
         },
     },
     components: {
@@ -26,44 +26,74 @@ const theme = createTheme({
                 {
                     props: { variant: 'filledTonal' },
                     style: {
-                        backgroundColor: '#91edb9',
-                        borderRadius: '20px',
-                        maxHeight: '40px',
-                        minHeight: '40px',
-                        paddingLeft: '24px',
-                        paddingRight: '24px',
-                        fontSize: '14px',
+                        backgroundColor: '#d8e7cb',
+                        color: '#131f0d',
+                        ':hover': {
+                            backgroundColor: '#ccdac0',
+                        },
+                    },
+                },
+                {
+                    props: { variant: 'filled' },
+                    style: {
+                        backgroundColor: '#2a6c0d',
+                        color: '#ffffff',
+                        ':hover': {
+                            backgroundColor: '#338510',
+                        },
+                        ':active': {
+                            backgroundColor: '#3a9912',
+                        },
                     },
                 },
                 {
                     props: { variant: 'filledTonalIcon' },
                     style: {
-                        backgroundColor: '#baf5d4',
-                        borderRadius: '20px',
-                        maxHeight: '40px',
                         maxWidth: '40px',
-                        minHeight: '40px',
                         minWidth: '40px',
                         paddingLeft: '16px',
                         paddingRight: '16px',
+                        color: '#131f0d',
+                        backgroundColor: '#d8e7cb',
                     },
                 },
             ],
             styleOverrides: {
-                root: {},
-                contained: {
+                root: {
                     borderRadius: '20px',
-                    height: '40px',
+                    maxHeight: '40px',
+                    minHeight: '40px',
                     paddingLeft: '24px',
                     paddingRight: '24px',
                 },
-                containedPrimary: {
-                    ':hover': {
-                        backgroundColor: '#1cc967',
+            },
+        },
+        MuiOutlinedInput: {
+            styleOverrides: {
+                root: {
+                    fontFamily: 'Rubik',
+                },
+            },
+        },
+        MuiCard: {
+            variants: [
+                {
+                    props: { variant: 'outlined' },
+                    style: {
+                        backgroundColor: '#fdfdf6',
+                        border: '1dp #73796d',
                     },
-                    ':active': {
-                        backgroundColor: '#18b55c',
+                },
+                {
+                    props: { variant: 'filled' },
+                    style: {
+                        backgroundColor: '#f2f5eb',
                     },
+                },
+            ],
+            styleOverrides: {
+                root: {
+                    borderRadius: '12px',
                 },
             },
         },

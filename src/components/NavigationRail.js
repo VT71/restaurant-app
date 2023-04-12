@@ -50,7 +50,7 @@ function NavigationRail() {
                                 <i className='fa-solid fa-utensils fa-xl'></i>
                             </div>
                         </div>
-                        <h2 className='text-center'>Menu</h2>
+                        <h2 className='label-medium text-center'>Menu</h2>
                     </div>
                 </div>
             </Link>
@@ -68,7 +68,7 @@ function NavigationRail() {
                                 <i className='fa-solid fa-cart-shopping fa-xl'></i>
                             </div>
                         </div>
-                        <h2 className='text-center'>My Order</h2>
+                        <h2 className='label-medium text-center'>My Order</h2>
                     </div>
                 </div>
             </Link>
@@ -84,7 +84,7 @@ function NavigationRail() {
                             <i className='fa-solid fa-circle-question fa-xl'></i>
                         </div>
                     </div>
-                    <h2 className='text-center'>Call Waiter</h2>
+                    <h2 className='label-medium text-center'>Call Waiter</h2>
                 </div>
             </div>
         </div>

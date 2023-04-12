@@ -51,12 +51,16 @@ function FoodCard({ props }) {
                 className='cardTextContainer'
                 style={
                     props.type === 'category'
-                        ? { height: '40%' }
-                        : { height: '30%' }
+                        ? { height: '38%' }
+                        : { height: '32%' }
                 }
             >
-                <h5 className='card-title text-center mb-2'>{props.title}</h5>
-                <div className='cardFoodDescription'>{props.description}</div>
+                <h5 className='headline-small card-title text-center mb-2'>
+                    {props.title}
+                </h5>
+                <div className='body-medium cardFoodDescription'>
+                    {props.description}
+                </div>
             </div>
 
             {props.type === 'food' ? (
@@ -83,7 +87,7 @@ function FoodCard({ props }) {
                 //     }
                 // }}
             >
-                <p className='fw-bold' style={{ margin: '0' }}>
+                <p className='label-large' style={{ margin: '0' }}>
                     {props.type === 'category' ? 'More' : 'Order'}
                 </p>
             </Button>

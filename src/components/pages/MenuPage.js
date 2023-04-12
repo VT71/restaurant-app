@@ -19,8 +19,8 @@ function MenuPage() {
     return (
         <div className='d-flex menu-page-container'>
             <NavigationRail />
-            <div className='menu-page'>
-                <h1 className='mt-4 text-center'>Menu</h1>
+            <div className='menu-page mb-5'>
+                <h1 className='display-medium mt-4 mb-2 text-center'>Menu</h1>
                 <div className='menu-container d-flex flex-wrap justify-content-around'>
                     <FoodCard
                         props={{

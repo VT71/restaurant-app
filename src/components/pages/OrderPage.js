@@ -145,7 +145,7 @@ function OrderPage() {
         <div className='d-flex order-page-container'>
             <NavigationRail />
             <div className='order-page'>
-                <h2 className='text-center mt-3'>Your Order</h2>
+                <h2 className='display-medium text-center mt-3'>Your Order</h2>
                 {/* <div className='orderCard m-4'>
                     <div className='orderCardBody'>
                         <ul className='list-group list-group-numbered'>
@@ -340,9 +340,10 @@ function OrderPage() {
                 <Card
                     sx={{ width: '100%', borderRadius: '12px', shadow: '0' }}
                     elevation={0}
-                    className='pb-2'
+                    className='px-2 pb-3'
+                    variant='filled'
                 >
-                    <CardContent sx={{ paddingBottom: '0' }} className='px-3'>
+                    <CardContent sx={{ paddingBottom: '0' }}>
                         <div className='text-start w-100'>
                             {foodList.map((item, index) => {
                                 const food = item.food;
@@ -354,8 +355,8 @@ function OrderPage() {
                                     <div key={nanoid()}>
                                         {index !== 0 ? <Divider /> : null}
                                         <div className='d-flex justify-content-between align-items-center'>
-                                            <div className='d-flex flex-column fw-bold py-2'>
-                                                <h5 className='d-inline'>
+                                            <div className='d-flex flex-column py-2'>
+                                                <h5 className='headline-small d-inline'>
                                                     {food}
                                                 </h5>
                                                 <div className='foodQuantityControl d-flex align-items-center'>
@@ -542,7 +543,14 @@ function OrderPage() {
                                                     </Button>
                                                 </div>
                                             </div>
-                                            <div>{'£' + foodPrice}</div>
+                                            <div>
+                                                <p
+                                                    className='headline-small'
+                                                    style={{ fontSize: '20px' }}
+                                                >
+                                                    {'£' + foodPrice}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 );
@@ -556,8 +564,8 @@ function OrderPage() {
                         />
                         <Divider sx={{ color: 'black' }} />
                         <div className='d-flex justify-content-between align-items-center mt-3'>
-                            <h2>Total:</h2>
-                            <h4>£{foodTotal}</h4>
+                            <h2 className='headline-large'>Total:</h2>
+                            <h4 className='headline-medium'>£{foodTotal}</h4>
                         </div>
 
                         {/* <Typography
@@ -587,6 +595,58 @@ function OrderPage() {
                                 variant='contained'
                                 color='primary'
                                 type='submit'
+                                onClick={() => {
+                                    if (foodList.length > 0) {
+                                        if (
+                                            Object.keys(customerTable).length >
+                                            0
+                                        ) {
+                                            let tempArray = [];
+
+                                            for (
+                                                let i = 0;
+                                                i < foodList.length;
+                                                i++
+                                            ) {
+                                                tempArray.push(
+                                                    foodList[i].contents
+                                                );
+                                            }
+
+                                            updateCustomerTable({
+                                                ...customerTable,
+                                                food:
+                                                    customerTable.food +
+                                                    tempArray.join('\n'),
+                                                comment:
+                                                    customerTable.comment +
+                                                    ' ' +
+                                                    customerComments,
+                                                pendingOrder: {
+                                                    food: '',
+                                                    comment: '',
+                                                },
+                                            });
+
+                                            setCustomerTable({
+                                                ...customerTable,
+                                                food:
+                                                    customerTable.food +
+                                                    tempArray.join('\n'),
+                                                comment:
+                                                    customerTable.comment +
+                                                    ' ' +
+                                                    customerComments,
+                                                pendingOrder: {
+                                                    food: '',
+                                                    comment: '',
+                                                },
+                                            });
+                                            setFoodList([]);
+                                            setCustomerComments('');
+                                        }
+                                    }
+                                }}
                             >
                                 Place Order
                             </Button>

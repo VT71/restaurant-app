@@ -85,7 +85,7 @@ function CategoryPage() {
     return (
         <div className='d-flex category-page-container'>
             <NavigationRail />
-            <div className='menu-page'>
+            <div className='mb-5 menu-page'>
                 <Alert
                     sx={{
                         opacity: '0',
@@ -100,7 +100,7 @@ function CategoryPage() {
                 >
                     Added to your order!
                 </Alert>
-                <h1 className='mt-4 text-center'>
+                <h1 className='display-medium mt-4 mb-2 text-center'>
                     {upperCase(foodCategory.charAt(0)) +
                         foodCategory.substring(1)}
                 </h1>
