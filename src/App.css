@@ -125,7 +125,7 @@ body,
     color: #3b3440;
     transition: box-shadow 0.3s;
     width: 200px;
-    height: 350px;
+    height: 360px;
     border-radius: 12px;
     position: relative;
     padding: 0;
@@ -144,12 +144,11 @@ body,
 .cardImgContainer {
     overflow: hidden;
     border-radius: 12px;
-    height: 45%;
+    height: 40%;
 }
 
 .cardTextContainer {
     padding: 10px 16px 0 16px;
-    height: 33%;
     text-align: center;
     overflow: scroll;
 }

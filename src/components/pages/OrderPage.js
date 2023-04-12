@@ -322,7 +322,7 @@ function OrderPage() {
                             {foodList.map((item, index) => {
                                 if (item.contents !== '') {
                                     const food = item.contents.replace(
-                                        /x\d+/,
+                                        /x\d+[$]\d+[.]\d+/,
                                         ''
                                     );
                                     const foodId = item.id;
@@ -335,6 +335,20 @@ function OrderPage() {
                                                     .length
                                             ),
                                         10
+                                    );
+                                    const foodPrice = parseFloat(
+                                        item.contents
+                                            .match(/[$]\d+[.]\d+/)[0]
+                                            .substring(
+                                                1,
+                                                item.contents.match(
+                                                    /[$]\d+[.]\d+/
+                                                )[0].length
+                                            ),
+                                        10
+                                    );
+                                    console.log(
+                                        'FOOD PRICE ORDER PAGE: ' + foodPrice
                                     );
 
                                     return (

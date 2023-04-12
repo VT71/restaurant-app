@@ -1,214 +1,214 @@
 {
-    "tables": [
+  "tables": [
+    {
+      "name": "Victor344",
+      "number": "7",
+      "status": "Waiter Called",
+      "food": "",
+      "comment": "",
+      "pendingOrder": {
+        "food": "Eggplant Salad x1\nEggplant Salad x1\n",
+        "comment": ""
+      },
+      "id": "SKVhbdPNTogsLE5lNwuXi"
+    },
+    {
+      "name": "Victor978",
+      "number": "4",
+      "status": "Waiter Called",
+      "food": "",
+      "comment": "",
+      "pendingOrder": {
+        "food": "Tomatoes Bruschetta x1$9.99\nSalmon Tartar x1$9.99\nSalmon Tartar x1$9.99\n",
+        "comment": ""
+      },
+      "id": "i9vE2UnY9301p7pxfD4tK"
+    }
+  ],
+  "foodList": [
+    {
+      "list": [
         {
-            "name": "Victor344",
-            "number": "7",
-            "status": "Waiter Called",
-            "food": "",
-            "comment": "",
-            "pendingOrder": {
-                "food": "Eggplant Salad x1\nEggplant Salad x1\n",
-                "comment": ""
-            },
-            "id": "SKVhbdPNTogsLE5lNwuXi"
+          "type": "food",
+          "title": "Eggplant Salad",
+          "imgName": "eggplant-salad-img.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
-            "name": "Victor978",
-            "number": "4",
-            "status": "Waiter Called",
-            "food": "",
-            "comment": "",
-            "pendingOrder": {
-                "food": "Eggplant Salad x6\nPumpkin Soup x3\nTomatoes Bruschetta x1\n",
-                "comment": ""
-            },
-            "id": "i9vE2UnY9301p7pxfD4tK"
+          "type": "food",
+          "title": "Salmon Tartar",
+          "imgName": "salmon-tartar-img.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Tomatoes Bruschetta",
+          "imgName": "tomatoes-bruschetta.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Wine Plate",
+          "imgName": "wine-plate.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Eggplant Bruschetta",
+          "imgName": "eggplant-bruschetta.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
-    ],
-    "foodList": [
+      ],
+      "id": "starters"
+    },
+    {
+      "list": [
         {
-            "list": [
-                {
-                    "type": "food",
-                    "title": "Eggplant Salad",
-                    "imgName": "eggplant-salad-img.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Salmon Tartar",
-                    "imgName": "salmon-tartar-img.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Tomatoes Bruschetta",
-                    "imgName": "tomatoes-bruschetta.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Wine Plate",
-                    "imgName": "wine-plate.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Eggplant Bruschetta",
-                    "imgName": "eggplant-bruschetta.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                }
-            ],
-            "id": "starters"
+          "type": "food",
+          "title": "Sweet Potato Soup",
+          "imgName": "sweet-potato-soup.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
-            "list": [
-                {
-                    "type": "food",
-                    "title": "Sweet Potato Soup",
-                    "imgName": "sweet-potato-soup.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Pumpkin Soup",
-                    "imgName": "pumpkin-soup.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Tomato Soup",
-                    "imgName": "tomato-soup.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Pho",
-                    "imgName": "pho.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                }
-            ],
-            "id": "soups"
+          "type": "food",
+          "title": "Pumpkin Soup",
+          "imgName": "pumpkin-soup.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
-            "list": [
-                {
-                    "type": "food",
-                    "title": "Tuna Salad",
-                    "imgName": "tuna-salad.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Caesar Salad",
-                    "imgName": "caesar-salad.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Tomato Mozarella Salad",
-                    "imgName": "tomato-mozarella-salad.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                }
-            ],
-            "id": "salads"
+          "type": "food",
+          "title": "Tomato Soup",
+          "imgName": "tomato-soup.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
-            "list": [
-                {
-                    "type": "food",
-                    "title": "Spaghetti Bolognese",
-                    "imgName": "spaghetti-bolognese.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Carbonara",
-                    "imgName": "carbonara-pasta.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Mussels Pasta",
-                    "imgName": "mussels-pasta.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                }
-            ],
-            "id": "pasta"
-        },
-        {
-            "list": [
-                {
-                    "type": "food",
-                    "title": "Beef Steak",
-                    "imgName": "beef-steak.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Grilled Sardinhas",
-                    "imgName": "grilles-sardinhas.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Baked Salmon",
-                    "imgName": "baked-salmon.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Baked Salmon",
-                    "imgName": "baked-duck.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                }
-            ],
-            "id": "mains"
-        },
-        {
-            "list": [
-                {
-                    "type": "food",
-                    "title": "Chocolate Dessert",
-                    "imgName": "chocolate-dessert.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Cheesecake",
-                    "imgName": "cheesecake.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-                {
-                    "type": "food",
-                    "title": "Tiramisu",
-                    "imgName": "tiramisu.jpg",
-                    "price": "£9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                }
-            ],
-            "id": "desserts"
+          "type": "food",
+          "title": "Pho",
+          "imgName": "pho.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
-    ]
+      ],
+      "id": "soups"
+    },
+    {
+      "list": [
+        {
+          "type": "food",
+          "title": "Tuna Salad",
+          "imgName": "tuna-salad.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Caesar Salad",
+          "imgName": "caesar-salad.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Tomato Mozarella Salad",
+          "imgName": "tomato-mozarella-salad.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ],
+      "id": "salads"
+    },
+    {
+      "list": [
+        {
+          "type": "food",
+          "title": "Spaghetti Bolognese",
+          "imgName": "spaghetti-bolognese.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Carbonara",
+          "imgName": "carbonara-pasta.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Mussels Pasta",
+          "imgName": "mussels-pasta.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ],
+      "id": "pasta"
+    },
+    {
+      "list": [
+        {
+          "type": "food",
+          "title": "Beef Steak",
+          "imgName": "beef-steak.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Grilled Sardinhas",
+          "imgName": "grilles-sardinhas.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Baked Salmon",
+          "imgName": "baked-salmon.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Baked Salmon",
+          "imgName": "baked-duck.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ],
+      "id": "mains"
+    },
+    {
+      "list": [
+        {
+          "type": "food",
+          "title": "Chocolate Dessert",
+          "imgName": "chocolate-dessert.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Cheesecake",
+          "imgName": "cheesecake.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "food",
+          "title": "Tiramisu",
+          "imgName": "tiramisu.jpg",
+          "price": "9.99",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ],
+      "id": "desserts"
+    }
+  ]
 }

@@ -16,6 +16,9 @@ function CategoryPage() {
     const [foodList, setFoodList] = useState([]);
 
     const updateCustomerTable = async (modifiedTable) => {
+        console.log(
+            'CATEGORY PAGE MODIFIED TABLE: ' + JSON.stringify(modifiedTable)
+        );
         const response = await fetch(
             `http://localhost:3333/tables/${modifiedTable.id}`,
             {
@@ -56,13 +59,20 @@ function CategoryPage() {
         return response;
     };
 
-    const updateOrder = (foodName) => {
+    const updateOrder = (foodName, foodPrice) => {
+        console.log('FOOD NAME: ' + foodName);
+        console.log('FOOD PRICE: ' + foodPrice);
         const modifiedTable = {};
         updateCustomerTable({
             ...customerTable,
             pendingOrder: {
                 ...customerTable.pendingOrder,
-                food: customerTable.pendingOrder.food + foodName + ' x1\n',
+                food:
+                    customerTable.pendingOrder.food +
+                    foodName +
+                    ' x1$' +
+                    foodPrice +
+                    '\n',
             },
         });
     };
@@ -140,6 +150,7 @@ function CategoryPage() {
                                 type: item.type,
                                 title: item.title,
                                 imgName: item.imgName,
+                                price: item.price,
                                 description: item.description,
                                 onClickFunction: updateOrder,
                             }}

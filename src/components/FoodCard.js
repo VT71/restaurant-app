@@ -35,7 +35,7 @@ function FoodCard({ props }) {
                 if (props.type === 'category') {
                     routeChange();
                 } else if (props.type === 'food') {
-                    props.onClickFunction(props.title);
+                    props.onClickFunction(props.title, props.price);
                     displaySuccessAlert();
                 }
             }}
@@ -47,15 +47,26 @@ function FoodCard({ props }) {
                     alt='...'
                 />
             </div>
-            <div className='cardTextContainer'>
+            <div
+                className='cardTextContainer'
+                style={
+                    props.type === 'category'
+                        ? { height: '40%' }
+                        : { height: '30%' }
+                }
+            >
                 <h5 className='card-title text-center mb-2'>{props.title}</h5>
                 <div className='cardFoodDescription'>{props.description}</div>
             </div>
 
+            {props.type === 'food' ? (
+                <h5 className='text-center mt-3'>{'£' + props.price}</h5>
+            ) : null}
+
             <Button
                 sx={{
                     position: 'absolute',
-                    bottom: '15px',
+                    bottom: '13px',
                     left: '50%',
                     transform: 'translate(-50%)',
                     marginLeft: 'auto',
@@ -63,14 +74,14 @@ function FoodCard({ props }) {
                 }}
                 disableElevation
                 variant='filledTonal'
-                onClick={() => {
-                    if (props.type === 'category') {
-                        routeChange();
-                    } else if (props.type === 'food') {
-                        props.onClickFunction(props.title);
-                        displaySuccessAlert();
-                    }
-                }}
+                // onClick={() => {
+                //     if (props.type === 'category') {
+                //         routeChange();
+                //     } else if (props.type === 'food') {
+                //         props.onClickFunction(props.title, props.price);
+                //         displaySuccessAlert();
+                //     }
+                // }}
             >
                 <p className='fw-bold' style={{ margin: '0' }}>
                     {props.type === 'category' ? 'More' : 'Order'}
