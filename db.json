@@ -57,35 +57,35 @@
                     "title": "Eggplant Salad",
                     "imgName": "eggplant-salad-img.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Salmon Tartar",
                     "imgName": "salmon-tartar-img.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Tomatoes Bruschetta",
                     "imgName": "tomatoes-bruschetta.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Wine Plate",
                     "imgName": "wine-plate.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Eggplant Bruschetta",
                     "imgName": "eggplant-bruschetta.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 }
             ],
             "id": "starters"
@@ -97,28 +97,28 @@
                     "title": "Sweet Potato Soup",
                     "imgName": "sweet-potato-soup.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Pumpkin Soup",
                     "imgName": "pumpkin-soup.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Tomato Soup",
                     "imgName": "tomato-soup.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Pho",
                     "imgName": "pho.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 }
             ],
             "id": "soups"
@@ -130,21 +130,21 @@
                     "title": "Tuna Salad",
                     "imgName": "tuna-salad.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Caesar Salad",
                     "imgName": "caesar-salad.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Tomato Mozarella Salad",
                     "imgName": "tomato-mozarella-salad.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 }
             ],
             "id": "salads"
@@ -156,21 +156,21 @@
                     "title": "Spaghetti Bolognese",
                     "imgName": "spaghetti-bolognese.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Carbonara",
                     "imgName": "carbonara-pasta.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Mussels Pasta",
                     "imgName": "mussels-pasta.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 }
             ],
             "id": "pasta"
@@ -182,28 +182,28 @@
                     "title": "Beef Steak",
                     "imgName": "beef-steak.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Grilled Sardinhas",
                     "imgName": "grilles-sardinhas.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Baked Salmon",
                     "imgName": "baked-salmon.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Baked Salmon",
                     "imgName": "baked-duck.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 }
             ],
             "id": "mains"
@@ -215,21 +215,21 @@
                     "title": "Chocolate Dessert",
                     "imgName": "chocolate-dessert.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Cheesecake",
                     "imgName": "cheesecake.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 },
                 {
                     "type": "food",
                     "title": "Tiramisu",
                     "imgName": "tiramisu.jpg",
                     "price": "9.99",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 }
             ],
             "id": "desserts"
