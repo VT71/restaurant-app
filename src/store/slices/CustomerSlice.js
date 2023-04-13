@@ -18,8 +18,9 @@ export const updateCustomerTable = createAsyncThunk(
     'customer/updateCustomerTable',
     async (modifiedTable) => {
         console.log('updateCustomerTable');
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
         const response = await fetch(
-            `http://localhost:3333/tables/${modifiedTable.id}`,
+            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${modifiedTable.id}`,
             {
                 method: 'PUT',
                 headers: {
@@ -35,13 +36,17 @@ export const updateCustomerTable = createAsyncThunk(
 export const addCustomerTable = createAsyncThunk(
     'customer/addCustomerTable',
     async (newTable) => {
-        const response = await fetch('http://localhost:3333/tables', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(newTable),
-        });
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
+        const response = await fetch(
+            'https://my-json-server.typicode.com/vt71/restaurant-app/tables',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify(newTable),
+            }
+        );
         return response.json();
     }
 );
@@ -49,7 +54,10 @@ export const addCustomerTable = createAsyncThunk(
 export const fetchCustomerTable = createAsyncThunk(
     'customer/fetchCustomerTable',
     async (tableId) => {
-        const response = await fetch(`http://localhost:3333/tables/${tableId}`)
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
+        const response = await fetch(
+            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${tableId}`
+        )
             .then((response) => response.json())
             .then((data) => data)
             .catch((err) => {

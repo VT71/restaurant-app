@@ -12,13 +12,17 @@ import { Card } from '@mui/material';
 
 function CustomerPage() {
     const addCustomerTable = async (newTable) => {
-        const response = await fetch('http://localhost:3333/tables', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(newTable),
-        });
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
+        const response = await fetch(
+            'https://my-json-server.typicode.com/vt71/restaurant-app/tables',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify(newTable),
+            }
+        );
         return response.json();
     };
 

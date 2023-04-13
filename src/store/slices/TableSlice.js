@@ -15,7 +15,10 @@ export const initialState = {
 };
 
 export const fetchTables = createAsyncThunk('tables/fetchTables', async () => {
-    const response = await fetch('http://localhost:3333/tables')
+    // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
+    const response = await fetch(
+        'https://my-json-server.typicode.com/vt71/restaurant-app/tables'
+    )
         .then((response) => response.json())
         .then((data) => data)
         .catch((err) => {
@@ -27,13 +30,17 @@ export const fetchTables = createAsyncThunk('tables/fetchTables', async () => {
 export const addTable = createAsyncThunk(
     'tables/addTable',
     async (newTable) => {
-        const response = await fetch('http://localhost:3333/tables', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify(newTable),
-        });
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
+        const response = await fetch(
+            'https://my-json-server.typicode.com/vt71/restaurant-app/tables',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify(newTable),
+            }
+        );
         return response.json();
     }
 );
@@ -44,9 +51,13 @@ export const removeTables = createAsyncThunk(
         console.log('tablesToDelete: ' + JSON.stringify(tablesToDelete));
         for (const table in tablesToDelete) {
             if (tablesToDelete[table] === true) {
-                await fetch(`http://localhost:3333/tables/${table}`, {
-                    method: 'DELETE',
-                }).catch((err) => {
+                // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
+                await fetch(
+                    `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${table}`,
+                    {
+                        method: 'DELETE',
+                    }
+                ).catch((err) => {
                     console.log(err.message);
                 });
             }
@@ -61,9 +72,13 @@ export const removeAllTables = createAsyncThunk(
         console.log('TABLES: ' + tables);
         for (const table of tables) {
             console.log('TABLE: ' + JSON.stringify(table));
-            await fetch(`http://localhost:3333/tables/${table['id']}`, {
-                method: 'DELETE',
-            }).catch((err) => {
+            // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
+            await fetch(
+                `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${table['id']}`,
+                {
+                    method: 'DELETE',
+                }
+            ).catch((err) => {
                 console.log(err.message);
             });
         }
@@ -73,8 +88,9 @@ export const removeAllTables = createAsyncThunk(
 export const editTable = createAsyncThunk(
     'tables/editTable',
     async (modifiedTable) => {
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
         const response = await fetch(
-            `http://localhost:3333/tables/${modifiedTable.id}`,
+            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${modifiedTable.id}`,
             {
                 method: 'PUT',
                 headers: {

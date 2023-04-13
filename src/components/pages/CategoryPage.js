@@ -19,8 +19,9 @@ function CategoryPage() {
         console.log(
             'CATEGORY PAGE MODIFIED TABLE: ' + JSON.stringify(modifiedTable)
         );
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
         const response = await fetch(
-            `http://localhost:3333/tables/${modifiedTable.id}`,
+            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${modifiedTable.id}`,
             {
                 method: 'PUT',
                 headers: {
@@ -34,7 +35,10 @@ function CategoryPage() {
     };
 
     const fetchCustomerTable = async (tableId) => {
-        const response = await fetch(`http://localhost:3333/tables/${tableId}`)
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
+        const response = await fetch(
+            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${tableId}`
+        )
             .then((response) => response.json())
             .then((data) => {
                 setCustomerTable(data);
@@ -46,8 +50,9 @@ function CategoryPage() {
     };
 
     const fetchFoodList = async (foodCategory) => {
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
         const response = await fetch(
-            `http://localhost:3333/foodList/${foodCategory}`
+            `https://my-json-server.typicode.com/vt71/restaurant-app/foodList/${foodCategory}`
         )
             .then((response) => response.json())
             .then((data) => {

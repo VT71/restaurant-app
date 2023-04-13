@@ -1,7 +1,12 @@
 import './App.css';
 import Form from './components/Form';
 import Table from './components/Table';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    HashRouter,
+} from 'react-router-dom';
 import WaiterPage from './components/pages/WaiterPage';
 import EntryPage from './components/pages/EntryPage';
 import KitchenPage from './components/pages/KitchenPage';
@@ -112,7 +117,7 @@ const theme = createTheme({
 function App() {
     return (
         <ThemeProvider theme={theme}>
-            <Router>
+            <HashRouter>
                 <Routes>
                     <Route path='/' exact element={<EntryPage />} />
                     <Route path='/waiter' exact element={<WaiterPage />} />
@@ -134,7 +139,7 @@ function App() {
                         element={<OrderPage />}
                     />
                 </Routes>
-            </Router>
+            </HashRouter>
         </ThemeProvider>
     );
 }

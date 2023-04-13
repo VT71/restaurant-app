@@ -22,7 +22,10 @@ function OrderPage() {
     let orderFood;
 
     const fetchCustomerTable = async (tableId) => {
-        const response = await fetch(`http://localhost:3333/tables/${tableId}`)
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
+        const response = await fetch(
+            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${tableId}`
+        )
             .then((response) => response.json())
             .then((data) => {
                 orderFood = data.pendingOrder.food.split('\n');
@@ -68,8 +71,9 @@ function OrderPage() {
     };
 
     const updateCustomerTable = async (modifiedTable) => {
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
         const response = await fetch(
-            `http://localhost:3333/tables/${modifiedTable.id}`,
+            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${modifiedTable.id}`,
             {
                 method: 'PUT',
                 headers: {

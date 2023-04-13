@@ -8,7 +8,10 @@ function NavigationRail() {
     const tableId = params.tableid;
 
     const fetchCustomerTable = async (tableId) => {
-        const response = await fetch(`http://localhost:3333/tables/${tableId}`)
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
+        const response = await fetch(
+            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${tableId}`
+        )
             .then((response) => response.json())
             .then((data) => {
                 data.status = 'Waiter Called';
@@ -21,8 +24,9 @@ function NavigationRail() {
     };
 
     const updateCustomerTable = async (modifiedTable) => {
+        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
         const response = await fetch(
-            `http://localhost:3333/tables/${modifiedTable.id}`,
+            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${modifiedTable.id}`,
             {
                 method: 'PUT',
                 headers: {

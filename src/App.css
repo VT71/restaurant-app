@@ -99,7 +99,8 @@ body,
 .menu-page-container,
 .category-page-container,
 .order-page-container,
-.customer-page-container {
+.customer-page-container,
+.entry-page-container {
     background-color: white;
     width: 100%;
     min-height: 100%;

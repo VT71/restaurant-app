@@ -1,5 +1,6 @@
 {
     "name": "restaurant-app",
+    "homepage": "https://VT71.github.io/restaurant-app/",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -24,6 +25,8 @@
     "scripts": {
         "api": "json-server db.json -p 3333 --delay 1500",
         "start": "react-scripts start",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
@@ -47,6 +50,7 @@
         ]
     },
     "devDependencies": {
+        "gh-pages": "^5.0.0",
         "json-server": "^0.17.1"
     }
 }
