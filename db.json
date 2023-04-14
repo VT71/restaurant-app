@@ -1,7 +1,7 @@
 {
     "tables": [
         {
-            "name": "Victor344",
+            "name": "Victor",
             "number": "7",
             "status": "Waiter Called",
             "food": "",
@@ -13,7 +13,7 @@
             "id": "SKVhbdPNTogsLE5lNwuXi"
         },
         {
-            "name": "Victor978",
+            "name": "Michael",
             "number": "4",
             "status": "Waiter Called",
             "food": "Salmon Tartar x2$9.99\nPho x2$9.99\nTiramisu x1$9.99",
@@ -25,7 +25,7 @@
             "id": "i9vE2UnY9301p7pxfD4tK"
         },
         {
-            "name": "Victor",
+            "name": "Andrew",
             "number": "15",
             "status": "Waiter Called",
             "food": "",
@@ -37,7 +37,7 @@
             "id": "lnKs_5k9FtMck8qLjAtdH"
         },
         {
-            "name": "Victor",
+            "name": "John",
             "number": "1",
             "status": "Waiter Called",
             "food": "",
