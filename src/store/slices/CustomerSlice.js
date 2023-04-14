@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { activeUrl } from '../../api/apiurls';
 
 const initialState = {
     apiStatus: 'idle',
@@ -18,9 +19,8 @@ export const updateCustomerTable = createAsyncThunk(
     'customer/updateCustomerTable',
     async (modifiedTable) => {
         console.log('updateCustomerTable');
-        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
         const response = await fetch(
-            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${modifiedTable.id}`,
+            `${activeUrl}/tables/${modifiedTable.id}`,
             {
                 method: 'PUT',
                 headers: {
@@ -36,17 +36,13 @@ export const updateCustomerTable = createAsyncThunk(
 export const addCustomerTable = createAsyncThunk(
     'customer/addCustomerTable',
     async (newTable) => {
-        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
-        const response = await fetch(
-            'https://my-json-server.typicode.com/vt71/restaurant-app/tables',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json',
-                },
-                body: JSON.stringify(newTable),
-            }
-        );
+        const response = await fetch(`${activeUrl}/tables`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(newTable),
+        });
         return response.json();
     }
 );
@@ -54,10 +50,7 @@ export const addCustomerTable = createAsyncThunk(
 export const fetchCustomerTable = createAsyncThunk(
     'customer/fetchCustomerTable',
     async (tableId) => {
-        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
-        const response = await fetch(
-            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${tableId}`
-        )
+        const response = await fetch(`${activeUrl}/tables/${tableId}`)
             .then((response) => response.json())
             .then((data) => data)
             .catch((err) => {

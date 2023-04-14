@@ -9,27 +9,18 @@ import { TextField, Button } from '@mui/material';
 // import { Button } from '@mui/material-next';
 //import Table from "../Table";
 import { Card } from '@mui/material';
+import { activeUrl } from '../../api/apiurls';
 
 function CustomerPage() {
     const addCustomerTable = async (newTable) => {
-        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
-        const response = await fetch(
-            'https://my-json-server.typicode.com/vt71/restaurant-app/tables',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json',
-                },
-                body: JSON.stringify(newTable),
-            }
-        );
+        const response = await fetch(`${activeUrl}/tables`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(newTable),
+        });
         return response.json();
-    };
-
-    const handleKey = (event) => {
-        if (event.key === 'Enter') {
-            document.getElementById('customerTableSubmissionButton').click();
-        }
     };
 
     //const dispatch = useDispatch();

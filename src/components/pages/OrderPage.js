@@ -15,6 +15,7 @@ import {
     TextField,
     Divider,
 } from '@mui/material';
+import { activeUrl } from '../../api/apiurls';
 
 function OrderPage() {
     const params = useParams();
@@ -23,9 +24,7 @@ function OrderPage() {
 
     const fetchCustomerTable = async (tableId) => {
         // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
-        const response = await fetch(
-            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${tableId}`
-        )
+        const response = await fetch(`${activeUrl}/tables/${tableId}`)
             .then((response) => response.json())
             .then((data) => {
                 orderFood = data.pendingOrder.food.split('\n');
@@ -73,7 +72,7 @@ function OrderPage() {
     const updateCustomerTable = async (modifiedTable) => {
         // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
         const response = await fetch(
-            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${modifiedTable.id}`,
+            `${activeUrl}/tables/${modifiedTable.id}`,
             {
                 method: 'PUT',
                 headers: {

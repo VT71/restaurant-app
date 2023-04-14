@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { upperCase } from 'lodash';
 import { nanoid } from '@reduxjs/toolkit';
 import { Alert } from '@mui/material';
+import { activeUrl } from '../../api/apiurls';
 
 function CategoryPage() {
     const params = useParams();
@@ -19,9 +20,8 @@ function CategoryPage() {
         console.log(
             'CATEGORY PAGE MODIFIED TABLE: ' + JSON.stringify(modifiedTable)
         );
-        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
         const response = await fetch(
-            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${modifiedTable.id}`,
+            `${activeUrl}/tables/${modifiedTable.id}`,
             {
                 method: 'PUT',
                 headers: {
@@ -35,10 +35,7 @@ function CategoryPage() {
     };
 
     const fetchCustomerTable = async (tableId) => {
-        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
-        const response = await fetch(
-            `https://my-json-server.typicode.com/vt71/restaurant-app/tables/${tableId}`
-        )
+        const response = await fetch(`${activeUrl}/tables/${tableId}`)
             .then((response) => response.json())
             .then((data) => {
                 setCustomerTable(data);
@@ -50,10 +47,7 @@ function CategoryPage() {
     };
 
     const fetchFoodList = async (foodCategory) => {
-        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
-        const response = await fetch(
-            `https://my-json-server.typicode.com/vt71/restaurant-app/foodList/${foodCategory}`
-        )
+        const response = await fetch(`${activeUrl}/foodList/${foodCategory}`)
             .then((response) => response.json())
             .then((data) => {
                 setFoodList(data.list);
