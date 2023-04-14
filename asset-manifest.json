@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/restaurant-app/static/css/main.c4eea379.css",
-    "main.js": "/restaurant-app/static/js/main.897cf1b9.js",
+    "main.js": "/restaurant-app/static/js/main.b168d2de.js",
     "static/js/787.26da9b02.chunk.js": "/restaurant-app/static/js/787.26da9b02.chunk.js",
     "static/media/tomato-mozarella-salad.jpg": "/restaurant-app/static/media/tomato-mozarella-salad.63bc9842e6b56119c3bf.jpg",
     "static/media/soup-category-img.jpg": "/restaurant-app/static/media/soup-category-img.0d74beafa249d56ab576.jpg",
@@ -33,11 +33,11 @@
     "static/media/salmon-tartar-img.jpg": "/restaurant-app/static/media/salmon-tartar-img.b338c0c132b30a7e0c6d.jpg",
     "index.html": "/restaurant-app/index.html",
     "main.c4eea379.css.map": "/restaurant-app/static/css/main.c4eea379.css.map",
-    "main.897cf1b9.js.map": "/restaurant-app/static/js/main.897cf1b9.js.map",
+    "main.b168d2de.js.map": "/restaurant-app/static/js/main.b168d2de.js.map",
     "787.26da9b02.chunk.js.map": "/restaurant-app/static/js/787.26da9b02.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c4eea379.css",
-    "static/js/main.897cf1b9.js"
+    "static/js/main.b168d2de.js"
   ]
 }
