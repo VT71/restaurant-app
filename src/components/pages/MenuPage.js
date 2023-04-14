@@ -1,18 +1,10 @@
 import React from 'react';
 import '../../App.css';
-import { useEffect, useState } from 'react';
-import { useSearchParams, useParams, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import NavigationRail from '../NavigationRail';
 import FoodCard from '../FoodCard';
 
 function MenuPage() {
-    // const customerPage = window.location.pathname;
-    // const dispatch = useDispatch();
-
-    const params = useParams();
-    const tableId = params.tableid;
     const path = useLocation();
 
     return (
