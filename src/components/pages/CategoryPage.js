@@ -17,9 +17,6 @@ function CategoryPage() {
     const [foodList, setFoodList] = useState([]);
 
     const updateCustomerTable = async (modifiedTable) => {
-        console.log(
-            'CATEGORY PAGE MODIFIED TABLE: ' + JSON.stringify(modifiedTable)
-        );
         const response = await fetch(
             `${activeUrl}/tables/${modifiedTable.id}`,
             {
@@ -59,9 +56,6 @@ function CategoryPage() {
     };
 
     const updateOrder = (foodName, foodPrice) => {
-        console.log('FOOD NAME: ' + foodName);
-        console.log('FOOD PRICE: ' + foodPrice);
-        const modifiedTable = {};
         updateCustomerTable({
             ...customerTable,
             pendingOrder: {
@@ -104,44 +98,6 @@ function CategoryPage() {
                         foodCategory.substring(1)}
                 </h1>
                 <div className='menu-container d-flex flex-wrap justify-content-around'>
-                    {/* <div className='foodCard'>
-                        <div className='cardImgContainer'>
-                            <img
-                                src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2799&q=80'
-                                className='card-img-top'
-                                alt='...'
-                            />
-                        </div>
-
-                        <div className='cardTextContainer'>
-                            <h5 className='card-title'>CardFood</h5>
-                            <div>
-                                <p>Ingredients</p>
-                                <ul>
-                                    <li>Ingredient1</li>
-                                    <li>Ingredient2</li>
-                                    <li>Ingredient3</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div
-                            className='cardButton d-flex justify-content-center align-items-center'
-                            onClick={() => {
-                                const modifiedTable = {};
-                                updateCustomerTable({
-                                    ...customerTable,
-                                    pendingOrder: {
-                                        ...customerTable.pendingOrder,
-                                        food:
-                                            customerTable.pendingOrder.food +
-                                            'CardFood x1\n',
-                                    },
-                                });
-                            }}
-                        >
-                            <p className='fw-bold'>Order +</p>
-                        </div>
-                    </div> */}
                     {foodList.map((item) => (
                         <FoodCard
                             key={nanoid()}
