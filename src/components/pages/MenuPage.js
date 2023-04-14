@@ -3,7 +3,6 @@ import '../../App.css';
 import { useEffect, useState } from 'react';
 import { useSearchParams, useParams, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCustomerOrder } from '../../store/slices/CustomerSlice';
 import { Link } from 'react-router-dom';
 import NavigationRail from '../NavigationRail';
 import FoodCard from '../FoodCard';

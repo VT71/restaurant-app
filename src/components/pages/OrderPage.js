@@ -1,7 +1,6 @@
 import { nanoid } from '@reduxjs/toolkit';
 import React, { useTransition } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateFood, addCustomerOrder } from '../../store/slices/CustomerSlice';
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { update } from 'lodash';

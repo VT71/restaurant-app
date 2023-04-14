@@ -3,4 +3,4 @@ const apiurls = {
     githubPages: 'https://my-json-server.typicode.com/vt71/restaurant-app',
 };
 
-export const activeUrl = apiurls.githubPages;
+export const activeUrl = apiurls.local;

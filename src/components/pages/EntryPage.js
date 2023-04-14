@@ -54,7 +54,7 @@ function EntryPage() {
                     </div>
                 </div>
                 <Card variant='filledTonal' className='p-3 mt-3 d-flex'>
-                    <span class='material-symbols-outlined'>info</span>
+                    <span className='material-symbols-outlined'>info</span>
                     <p className='body-medium ms-2'>
                         <span style={{ fontWeight: 'bold' }}>Please Note:</span>{' '}
                         Adding food to the basket, in the customer section, will
