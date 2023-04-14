@@ -5,8 +5,6 @@ import { updatePendingReservation } from '../store/slices/TableSlice';
 function FoodPreview({ props }) {
     let quantity = props.quantity.substring(1, props.quantity.length);
     let food = props.food;
-    console.log('Quantity:' + quantity);
-    console.log('Food:' + food);
 
     const dispatch = useDispatch();
     const tableOrder = useSelector(
@@ -16,10 +14,7 @@ function FoodPreview({ props }) {
     const changeQuantity = (op) => {
         const index = tableOrder.indexOf(food + 'x' + quantity);
         if (op === 'decrease') {
-            console.log('decrease operation');
-            console.log('quantity: ' + quantity);
             if (quantity == 1) {
-                console.log('inside first if');
                 tableOrder.splice(index, 1);
                 dispatch(
                     updatePendingReservation({
@@ -39,10 +34,8 @@ function FoodPreview({ props }) {
             }
         }
         if (op === 'increase') {
-            console.log('increase operation');
             quantity++;
             tableOrder[index] = food + 'x' + quantity;
-            console.log('Table Order: ' + tableOrder);
             dispatch(
                 updatePendingReservation({
                     dataType: 'food',

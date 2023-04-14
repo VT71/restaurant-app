@@ -1,14 +1,7 @@
 import React from 'react';
 import FoodSelection from './FoodSelection';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
 import {
-    updateGlobalState,
-    addTableNumber,
-    addTableStatus,
-    addBreakfast,
-    addSalad,
-    addComment,
     addTable,
     updatePendingReservation,
     editTable,
@@ -16,19 +9,7 @@ import {
 import FormSelectionPreview from './FormSelectionPreview';
 
 function Form() {
-    // const [pendingReservation, setReservation] = useState({
-    //     number: 0,
-    //     status: 'Reserved',
-    //     food: '',
-    //     comment: '',
-    // });
     const dispatch = useDispatch();
-    // const tableNumber = useSelector(
-    //     (state) => state.tables.pendingReservation.number
-    // );
-    // const tableStatus = useSelector(
-    //     (state) => state.tables.pendingReservation.status
-    // );
     const pendingReservation = useSelector(
         (state) => state.tables.pendingReservation
     );
@@ -36,135 +17,8 @@ function Form() {
     const pendingModification = useSelector(
         (state) => state.tables.pendingModification
     );
-    // const getTables = async (
-    //     tableNumber,
-    //     tableStatus,
-    //     breakfast,
-    //     salads,
-    //     fish,
-    //     pork,
-    //     dessert,
-    //     comment
-    // ) => {
-    //     await fetch('http://localhost:3333/tables', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //             number: tableNumber,
-    //             status: tableStatus,
-    //             food:
-    //                 breakfast +
-    //                 '\n' +
-    //                 salads +
-    //                 '\n' +
-    //                 fish +
-    //                 '\n' +
-    //                 pork +
-    //                 '\n' +
-    //                 dessert,
-    //             comment: comment,
-    //         }),
-    //     });
-    // };
 
     const submitOrder = (e) => {
-        // const tableNumber = document.getElementById('tableno-input').value;
-        // dispatch(addTableNumber(tableNumber));
-        // const tableStatus = document.getElementById('status-input').value;
-        // dispatch(
-        //     addTableStatus({
-        //         number: tableNumber,
-        //         status: document.getElementById('status-input').value,
-        //     })
-        // );
-        let breakfast = '';
-        let salads = '';
-        let fish = '';
-        let pork = '';
-        let dessert = '';
-        let comment = '';
-        if (
-            !(
-                document.getElementById('breakfast-selection').value ===
-                'unselected'
-            )
-        ) {
-            breakfast = document.getElementById('breakfast-selection').value;
-            // dispatch(
-            //     addBreakfast({
-            //         number: tableNumber,
-            //         food: [
-            //             document.getElementById('breakfast-selection').value,
-            //         ],
-            //     })
-            // );
-        }
-        if (
-            !(
-                document.getElementById('salads-selection').value ===
-                'unselected'
-            )
-        ) {
-            salads = document.getElementById('salads-selection').value;
-            // dispatch(
-            //     addSalad({
-            //         number: tableNumber,
-            //         food: [document.getElementById('salads-selection').value],
-            //     })
-            // );
-        }
-        if (
-            !(document.getElementById('fish-selection').value === 'unselected')
-        ) {
-            fish = document.getElementById('fish-selection').value;
-            // dispatch(
-            //     addSalad({
-            //         number: tableNumber,
-            //         food: [document.getElementById('fish-selection').value],
-            //     })
-            // );
-        }
-        if (
-            !(document.getElementById('pork-selection').value === 'unselected')
-        ) {
-            pork = document.getElementById('pork-selection').value;
-            // dispatch(
-            //     addSalad({
-            //         number: tableNumber,
-            //         food: [document.getElementById('pork-selection').value],
-            //     })
-            // );
-        }
-        if (
-            !(
-                document.getElementById('dessert-selection').value ===
-                'unselected'
-            )
-        ) {
-            dessert = document.getElementById('dessert-selection').value;
-            // dispatch(
-            //     addSalad({
-            //         number: tableNumber,
-            //         food: [document.getElementById('dessert-selection').value],
-            //     })
-            // );
-        }
-        if (!(document.getElementById('comments-input').value === '')) {
-            comment = document.getElementById('comments-input').value;
-            // dispatch(
-            //     addComment({
-            //         number: tableNumber,
-            //         comment: document.getElementById('comments-input').value,
-            //     })
-            // );
-        }
-        console.log(
-            'Pending Reservation to be dispatched: ' +
-                JSON.stringify(pendingReservation)
-        );
-
         if (pendingModification.status == 'in-progress') {
             dispatch(
                 editTable({

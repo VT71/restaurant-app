@@ -85,15 +85,6 @@ function FoodSelection({ foodType }) {
                         );
                     })}
                 </select>
-                {/* <div className='d-flex align-items-center'>
-                    <button type='button' className='btn btn-outline-primary'>
-                        -
-                    </button>
-                    <h4 className='my-0 mx-2'>1</h4>
-                    <button type='button' className='btn btn-outline-primary'>
-                        +
-                    </button>
-                </div> */}
             </div>
         </div>
     );
