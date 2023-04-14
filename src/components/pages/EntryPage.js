@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../App.css';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Button, Card } from '@mui/material';
 
@@ -30,46 +29,22 @@ function EntryPage() {
                 <h1 className='display-medium text-center mb-5'>Hello User</h1>
                 <div className='d-flex justify-content-around align-items-center mt-5'>
                     <div>
-                        {/* <Link
-                        className='entryGroup-button btn btn-danger'
-                        to='/waiter'
-                    >
-                        <div className='w-100 h-100 d-flex justify-content-center align-items-center'>
-                            <p>Waiter</p>
-                        </div>
-                    </Link> */}
                         <Button
-                            variant='filledTonal'
+                            variant='disabled'
                             onClick={() => routeChange('waiter')}
                         >
                             <p className='label-large m-0'>Waiter</p>
                         </Button>
                     </div>
                     <div>
-                        {/* <Link
-                        className='entryGroup-button btn btn-warning'
-                        to='/kitchen'
-                    >
-                        <div className='w-100 h-100 d-flex justify-content-center align-items-center'>
-                            <p>Kitchen</p>
-                        </div>
-                    </Link> */}
                         <Button
-                            variant='filledTonal'
+                            variant='disabled'
                             onClick={() => routeChange('kitchen')}
                         >
                             <p className='label-large m-0'>Kitchen</p>
                         </Button>
                     </div>
                     <div>
-                        {/* <Link
-                        className='entryGroup-button btn btn-primary'
-                        to='/customer'
-                    >
-                        <div className='w-100 h-100 d-flex justify-content-center align-items-center'>
-                            <p>Customer</p>
-                        </div>
-                    </Link> */}
                         <Button
                             variant='filledTonal'
                             onClick={() => routeChange('customer')}

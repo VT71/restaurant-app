@@ -62,6 +62,12 @@ const theme = createTheme({
                         backgroundColor: '#d8e7cb',
                     },
                 },
+                {
+                    props: { variant: 'disabled' },
+                    style: {
+                        backgroundColor: 'rgba(180, 180, 180, 0.673)',
+                    },
+                },
             ],
             styleOverrides: {
                 root: {
