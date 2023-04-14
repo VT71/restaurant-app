@@ -1,14 +1,12 @@
 import { lowerCase } from 'lodash';
 import React from 'react';
 import { useNavigate } from 'react-router';
-import { Alert } from '@mui/material';
 import { Button } from '@mui/material';
 
 function FoodCard({ props }) {
     const navigate = useNavigate();
     const routeChange = () => {
         let path = props.location + '/categories/' + lowerCase(props.title);
-        console.log('path: ' + path);
         navigate(path);
     };
 
@@ -78,38 +76,11 @@ function FoodCard({ props }) {
                 }}
                 disableElevation
                 variant='filledTonal'
-                // onClick={() => {
-                //     if (props.type === 'category') {
-                //         routeChange();
-                //     } else if (props.type === 'food') {
-                //         props.onClickFunction(props.title, props.price);
-                //         displaySuccessAlert();
-                //     }
-                // }}
             >
                 <p className='label-large' style={{ margin: '0' }}>
                     {props.type === 'category' ? 'More' : 'Order'}
                 </p>
             </Button>
-            {/* <div
-                className={
-                    props.type === 'category'
-                        ? 'foodCardButton category d-flex justify-content-center align-items-center'
-                        : 'foodCardButton d-flex justify-content-center align-items-center'
-                }
-                onClick={() => {
-                    if (props.type === 'category') {
-                        routeChange();
-                    } else if (props.type === 'food') {
-                        props.onClickFunction(props.title);
-                        displaySuccessAlert();
-                    }
-                }}
-            >
-                <p className='fw-bold'>
-                    {props.type === 'category' ? 'More' : 'Order'}
-                </p>
-            </div> */}
         </div>
     );
 }
