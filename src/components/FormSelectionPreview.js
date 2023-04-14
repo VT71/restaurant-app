@@ -16,11 +16,9 @@ function FormSelectionPreview() {
     const comment = useSelector(
         (state) => state.tables.pendingReservation.comment
     );
-    console.log('Checking tableOrder');
     const tableOrder = useSelector(
         (state) => state.tables.pendingReservation.food
     ).split('\n');
-    console.log('Table Order: ' + tableOrder);
     return (
         <div className='card'>
             <div className='card-body'>

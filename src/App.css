@@ -4,57 +4,10 @@
 @import url(theme.light.css) (prefers-color-scheme: light);
 /* @import url(theme.dark.css) (prefers-color-scheme: dark); */
 
-:root {
-    --primary-color: #f8873a;
-    --secondary-color: #8bbf51;
-    --background-color: #f5f5f5;
-    --main-font: 'Rubik', sans-serif;
-    --temp: rgba(180, 180, 180, 0.673);
-}
-
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-}
-
-.App {
-    text-align: center;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
 }
 
 html,
@@ -129,13 +82,6 @@ body,
     height: 65px;
 }
 
-/* .orderCard,
-.foodCard {
-    background-color: white;
-    color: #3b3440;
-    border-radius: 12px;
-} */
-
 .foodCard {
     background-color: #f2f5eb;
     color: #3b3440;
@@ -175,22 +121,6 @@ body,
     width: 100%;
 }
 
-/* .foodCardButton {
-    font-size: 14px;
-    background-color: #c4d7ed;
-    width: fit-content;
-    padding: 0 24px 0 24px;
-    height: 40px;
-    border-radius: 20px;
-    color: #183152;
-    margin-top: 100px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    margin-left: auto;
-    margin-right: auto;
-} */
-
 .foodCardButton p {
     margin: 0;
 }
@@ -199,13 +129,6 @@ body,
     background-color: #183152;
     color: #e1e6fa;
 }
-
-/* .foodCardButton.category {
-    left: 50%;
-    transform: translate(-50%);
-    margin-left: auto;
-    margin-right: auto;
-} */
 
 .nav-rail {
     background-color: #f2f5eb;
