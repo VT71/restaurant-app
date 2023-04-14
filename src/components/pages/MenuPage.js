@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css';
-import { useParams, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import NavigationRail from '../NavigationRail';
 import FoodCard from '../FoodCard';
 

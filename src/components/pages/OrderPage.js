@@ -22,7 +22,6 @@ function OrderPage() {
     let orderFood;
 
     const fetchCustomerTable = async (tableId) => {
-        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
         const response = await fetch(`${activeUrl}/tables/${tableId}`)
             .then((response) => response.json())
             .then((data) => {
@@ -69,7 +68,6 @@ function OrderPage() {
     };
 
     const updateCustomerTable = async (modifiedTable) => {
-        // TO BE REPLACED WITH http://localhost:3333 WHEN RUNNING LOCALLY
         const response = await fetch(
             `${activeUrl}/tables/${modifiedTable.id}`,
             {
@@ -148,197 +146,6 @@ function OrderPage() {
             <NavigationRail />
             <div className='order-page'>
                 <h2 className='display-medium text-center mt-3'>Your Order</h2>
-                {/* <div className='orderCard m-4'>
-                    <div className='orderCardBody'>
-                        <ul className='list-group list-group-numbered'>
-                            <div className='text-start ms-2 w-100'>
-                                {foodList.map((item) => {
-                                    if (item.contents !== '') {
-                                        const food = item.contents.replace(
-                                            /x\d+/,
-                                            ''
-                                        );
-                                        const foodId = item.id;
-                                        const foodQuantity = parseInt(
-                                            item.contents
-                                                .match(/x\d+/)[0]
-                                                .substring(
-                                                    1,
-                                                    item.contents.match(
-                                                        /x\d+/
-                                                    )[0].length
-                                                ),
-                                            10
-                                        );
-
-                                        return (
-                                            <div
-                                                key={nanoid()}
-                                                className='d-flex justify-content-between align-items-center fw-bold py-2'
-                                            >
-                                                <h5 className='d-inline'>
-                                                    {food}
-                                                </h5>
-                                                <div className='foodQuantityControl d-flex align-items-center'>
-                                                    <button
-                                                        type='button'
-                                                        className='btn btn-outline-primary'
-                                                        onClick={() => {
-                                                            if (
-                                                                foodQuantity ==
-                                                                1
-                                                            ) {
-                                                                setFoodList(
-                                                                    foodList.filter(
-                                                                        (
-                                                                            item
-                                                                        ) =>
-                                                                            item.id !=
-                                                                            foodId
-                                                                    )
-                                                                );
-                                                            } else {
-                                                                const tempArray =
-                                                                    foodList.map(
-                                                                        (
-                                                                            item
-                                                                        ) => {
-                                                                            if (
-                                                                                item.id ==
-                                                                                foodId
-                                                                            ) {
-                                                                                return {
-                                                                                    contents:
-                                                                                        food +
-                                                                                        'x' +
-                                                                                        (foodQuantity -
-                                                                                            1),
-                                                                                    id: foodId,
-                                                                                };
-                                                                            } else {
-                                                                                return item;
-                                                                            }
-                                                                        }
-                                                                    );
-                                                                setFoodList(
-                                                                    tempArray
-                                                                );
-                                                            }
-                                                        }}
-                                                    >
-                                                        -
-                                                    </button>
-                                                    <h5 className='m-auto'>
-                                                        {foodQuantity}
-                                                    </h5>
-                                                    <button
-                                                        type='button'
-                                                        className='btn btn-outline-primary'
-                                                        onClick={() => {
-                                                            const tempArray =
-                                                                foodList.map(
-                                                                    (item) => {
-                                                                        if (
-                                                                            item.id ==
-                                                                            foodId
-                                                                        ) {
-                                                                            return {
-                                                                                contents:
-                                                                                    food +
-                                                                                    'x' +
-                                                                                    (foodQuantity +
-                                                                                        1),
-                                                                                id: foodId,
-                                                                            };
-                                                                        } else {
-                                                                            return item;
-                                                                        }
-                                                                    }
-                                                                );
-                                                            setFoodList(
-                                                                tempArray
-                                                            );
-                                                        }}
-                                                    >
-                                                        +
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        );
-                                    }
-                                })}
-                            </div>
-                        </ul>
-                        <div className='form-floating mt-3'>
-                            <textarea
-                                className='form-control'
-                                placeholder='Leave your comments here'
-                                id='customerOrderCommentsInput'
-                                onChange={(e) =>
-                                    setCustomerComments(e.target.value)
-                                }
-                                value={customerComments}
-                            ></textarea>
-                            <label htmlFor='customerOrderCommentsInput'>
-                                Comments
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <button
-                    className='btn btn-primary ms-4'
-                    onClick={() => {
-                        if (foodList.length > 0) {
-                            if (Object.keys(customerTable).length > 0) {
-                                let tempArray = [];
-
-                                for (let i = 0; i < foodList.length; i++) {
-                                    tempArray.push(foodList[i].contents);
-                                }
-
-                                updateCustomerTable({
-                                    ...customerTable,
-                                    food:
-                                        customerTable.food +
-                                        tempArray.join('\n'),
-                                    comment:
-                                        customerTable.comment +
-                                        ' ' +
-                                        customerComments,
-                                    pendingOrder: {
-                                        food: '',
-                                        comment: '',
-                                    },
-                                });
-
-                                setCustomerTable({
-                                    ...customerTable,
-                                    food:
-                                        customerTable.food +
-                                        tempArray.join('\n'),
-                                    comment:
-                                        customerTable.comment +
-                                        ' ' +
-                                        customerComments,
-                                    pendingOrder: {
-                                        food: '',
-                                        comment: '',
-                                    },
-                                });
-                                setFoodList([]);
-                                setCustomerComments('');
-                            }
-                        }
-                        // console.log(
-                        //     'CUSTOMER TABLE: ' + JSON.stringify(customerTable)
-                        // );
-                        // console.log('CUSTOMER FOOD LIST: ' + foodList);
-                        // console.log('CUSTOMER COMMENTS: ' + customerComments);
-                    }}
-                >
-                    Order
-                </button> */}
-
                 <Card
                     sx={{ width: '100%', borderRadius: '12px', shadow: '0' }}
                     elevation={0}
@@ -362,55 +169,6 @@ function OrderPage() {
                                                     {food}
                                                 </h5>
                                                 <div className='foodQuantityControl d-flex align-items-center'>
-                                                    {/* <button
-                                                            type='button'
-                                                            className='btn btn-outline-primary'
-                                                            onClick={() => {
-                                                                if (
-                                                                    foodQuantity ==
-                                                                    1
-                                                                ) {
-                                                                    setFoodList(
-                                                                        foodList.filter(
-                                                                            (
-                                                                                item
-                                                                            ) =>
-                                                                                item.id !=
-                                                                                foodId
-                                                                        )
-                                                                    );
-                                                                } else {
-                                                                    const tempArray =
-                                                                        foodList.map(
-                                                                            (
-                                                                                item
-                                                                            ) => {
-                                                                                if (
-                                                                                    item.id ==
-                                                                                    foodId
-                                                                                ) {
-                                                                                    return {
-                                                                                        contents:
-                                                                                            food +
-                                                                                            'x' +
-                                                                                            (foodQuantity -
-                                                                                                1),
-                                                                                        id: foodId,
-                                                                                        key: nanoid(),
-                                                                                    };
-                                                                                } else {
-                                                                                    return item;
-                                                                                }
-                                                                            }
-                                                                        );
-                                                                    setFoodList(
-                                                                        tempArray
-                                                                    );
-                                                                }
-                                                            }}
-                                                        >
-                                                            -
-                                                        </button> */}
                                                     <Button
                                                         disableElevation
                                                         variant='filledTonalIcon'
@@ -471,39 +229,6 @@ function OrderPage() {
                                                     <h5 className='m-auto'>
                                                         {foodQuantity}
                                                     </h5>
-                                                    {/* <button
-                                                            type='button'
-                                                            className='btn btn-outline-primary'
-                                                            onClick={() => {
-                                                                const tempArray =
-                                                                    foodList.map(
-                                                                        (
-                                                                            item
-                                                                        ) => {
-                                                                            if (
-                                                                                item.id ==
-                                                                                foodId
-                                                                            ) {
-                                                                                return {
-                                                                                    contents:
-                                                                                        food +
-                                                                                        'x' +
-                                                                                        (foodQuantity +
-                                                                                            1),
-                                                                                    id: foodId,
-                                                                                };
-                                                                            } else {
-                                                                                return item;
-                                                                            }
-                                                                        }
-                                                                    );
-                                                                setFoodList(
-                                                                    tempArray
-                                                                );
-                                                            }}
-                                                        >
-                                                            +
-                                                        </button> */}
                                                     <Button
                                                         disableElevation
                                                         variant='filledTonalIcon'
@@ -569,25 +294,6 @@ function OrderPage() {
                             <h2 className='headline-large'>Total:</h2>
                             <h4 className='headline-medium'>£{foodTotal}</h4>
                         </div>
-
-                        {/* <Typography
-                            sx={{ fontSize: 14 }}
-                            color='text.secondary'
-                            gutterBottom
-                        >
-                            Word of the Day
-                        </Typography>
-                        <Typography variant='h5' component='div'>
-                            benevolent
-                        </Typography>
-                        <Typography sx={{ mb: 1.5 }} color='text.secondary'>
-                            adjective
-                        </Typography>
-                        <Typography variant='body2'>
-                            well meaning and kindly.
-                            <br />
-                            {'"a benevolent smile"'}
-                        </Typography> */}
                     </CardContent>
 
                     <CardActions>
