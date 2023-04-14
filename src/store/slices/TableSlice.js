@@ -7,10 +7,15 @@ export const initialState = {
     apiStatus: 'idle',
     error: null,
     pendingReservation: {
+        name: '',
         number: 0,
         status: 'Reserved',
         food: '',
         comment: '',
+        pendingOrder: {
+            food: '',
+            comment: '',
+        },
     },
     pendingModification: { status: 'none', id: '', number: '' },
 };

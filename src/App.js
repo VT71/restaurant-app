@@ -101,6 +101,12 @@ const theme = createTheme({
                         backgroundColor: '#f2f5eb',
                     },
                 },
+                {
+                    props: { variant: 'filledTonal' },
+                    style: {
+                        backgroundColor: '#d2e4ff',
+                    },
+                },
             ],
             styleOverrides: {
                 root: {

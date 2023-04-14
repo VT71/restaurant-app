@@ -10,25 +10,40 @@ function FoodSelection({ foodType }) {
     let id = '';
     let food = [];
     switch (foodType) {
-        case 'breakfast':
-            id = 'breakfast';
-            food = ['Food 1', 'Food 2'];
+        case 'starters':
+            id = 'starters';
+            food = [
+                'Eggplant Salad',
+                'Salmon Tartar',
+                'Tomatoes Bruschetta',
+                'Wine Plate',
+                'Eggplant Bruschetta',
+            ];
+            break;
+        case 'soups':
+            id = 'soups';
+            food = ['Sweet Potato Soup', 'Pumpkin Soup', 'Tomato Soup', 'Pho'];
             break;
         case 'salads':
             id = 'salads';
-            food = ['Salad 1', 'Salad 2'];
+            food = ['Tuna Salad', 'Caesar Salad', 'Tomato Mozarella Salad'];
             break;
-        case 'fish':
-            id = 'fish';
-            food = ['Fish 1', 'Fish 2'];
+        case 'pasta':
+            id = 'pasta';
+            food = ['Spaghetti Bolognese', 'Carbonara', 'Mussels Pasta'];
             break;
-        case 'pork':
-            id = 'pork';
-            food = ['Pork 1', 'Pork 2'];
+        case 'mains':
+            id = 'mains';
+            food = [
+                'Beef Steak',
+                'Grilled Sardinhas',
+                'Baked Salmon',
+                'Baked Duck',
+            ];
             break;
-        case 'dessert':
-            id = 'dessert';
-            food = ['Dessert 1', 'Dessert 2'];
+        case 'desserts':
+            id = 'desserts';
+            food = ['Chocolate Dessert', 'Cheesecake', 'Tiramisu'];
             break;
         default:
             id = 'error';

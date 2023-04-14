@@ -70,9 +70,9 @@ function Form() {
     // };
 
     const submitOrder = (e) => {
-        const tableNumber = document.getElementById('tableno-input').value;
+        // const tableNumber = document.getElementById('tableno-input').value;
         // dispatch(addTableNumber(tableNumber));
-        const tableStatus = document.getElementById('status-input').value;
+        // const tableStatus = document.getElementById('status-input').value;
         // dispatch(
         //     addTableStatus({
         //         number: tableNumber,
@@ -271,11 +271,12 @@ function Form() {
                                             <option>Awaiting Order</option>
                                         </select>
                                     </div>
-                                    <FoodSelection foodType='breakfast' />
+                                    <FoodSelection foodType='starters' />
+                                    <FoodSelection foodType='soups' />
                                     <FoodSelection foodType='salads' />
-                                    <FoodSelection foodType='fish' />
-                                    <FoodSelection foodType='pork' />
-                                    <FoodSelection foodType='dessert' />
+                                    <FoodSelection foodType='pasta' />
+                                    <FoodSelection foodType='mains' />
+                                    <FoodSelection foodType='desserts' />
                                     <div className='mb-3'>
                                         <label
                                             htmlFor='comments-input'
