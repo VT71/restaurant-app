@@ -11,75 +11,21 @@ import {
     updatePendingReservation,
     updatePendingModification,
 } from '../store/slices/TableSlice';
-import store from '../store/store';
 import { nanoid } from '@reduxjs/toolkit';
 
 function Table({ props }) {
     const [tableToEdit, setTableToEdit] = useState({});
 
-    // When Using Checkboxes
-    const [tablesToDelete, setTablesToDelete] = useState({});
-    const [anyTablesToDelete, setNoTablesToDelete] = useState(0);
-
     const dispatch = useDispatch();
     const apiStatus = useSelector((state) => state.tables.apiStatus);
     const tables = useSelector((state) => state.tables.tables);
-    //const tablesToDelete = useSelector((state) => state.tables.tablesToDelete);
-
-    // When using checkboxes
-    const addTableToDelete = (e, newId) => {
-        if (e.target.checked === true) {
-            setNoTablesToDelete(anyTablesToDelete + 1);
-        } else {
-            setNoTablesToDelete(anyTablesToDelete - 1);
-        }
-        setTablesToDelete({ ...tablesToDelete, [newId]: e.target.checked });
-        // if (tablesToDelete.includes(newId)) {
-        //     console.log('ALREADY INCLUDES');
-        //     setTablesToDelete([tablesToDelete.filter((id) => id !== newId)]);
-        // } else {
-        //     console.log('NOT INCLUDES');
-        //     setTablesToDelete([...tablesToDelete, newId]);
-        // }
-    };
-
-    // const getTables = async () => {
-    //     await fetch('http://localhost:3333/tables')
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             setTables(data);
-    //         })
-    //         .catch((err) => {
-    //             console.log(err.message);
-    //         });
-    // };
 
     useEffect(() => {
         if (apiStatus === 'idle') {
-            console.log('preparing to dispatch fetch tables');
             dispatch(fetchTables());
         }
     }, [apiStatus, dispatch]);
 
-    //console.log(anyTablesToDelete);
-
-    // let temp;
-    // tables.map((table) => {
-    //     try {
-    //         temp = table.number;
-    //     } catch (err) {
-    //         console.log(
-    //             JSON.stringify('!!!TABLE!!!: ' + JSON.stringify(table))
-    //         );
-    //         console.log(
-    //             '!!!!!!!!!!!!!!!!!!!!!!!!' +
-    //                 err.message +
-    //                 '!!!!!!!!!!!!!!!!!!!!!!!!'
-    //         );
-    //     }
-    // });
-    //console.log('Preparing to dispatch tables: ' + { tables });
-    //dispatch(updateGlobalState(tables));
     return (
         <div className='container-md' data-testid='table-container'>
             <div className='row'>
@@ -134,18 +80,12 @@ function Table({ props }) {
                                                                 table.id
                                                             }
                                                             onClick={() => {
-                                                                console.log(
-                                                                    'onClick Triggered'
-                                                                );
                                                                 if (
                                                                     Object.keys(
                                                                         tableToEdit
                                                                     )[0] ==
                                                                     table.id
                                                                 ) {
-                                                                    console.log(
-                                                                        'IF 1'
-                                                                    );
                                                                     const key =
                                                                         Object.keys(
                                                                             tableToEdit
@@ -192,18 +132,12 @@ function Table({ props }) {
                                                                 }
                                                             }}
                                                             onChange={() => {
-                                                                console.log(
-                                                                    'onChange Triggered'
-                                                                );
                                                                 if (
                                                                     Object.keys(
                                                                         tableToEdit
                                                                     )[0] !=
                                                                     table.id
                                                                 ) {
-                                                                    console.log(
-                                                                        'IF 2'
-                                                                    );
                                                                     const key =
                                                                         Object.keys(
                                                                             tableToEdit
@@ -245,12 +179,6 @@ function Table({ props }) {
                                                                             'true'
                                                                         );
                                                                 }
-                                                                console.log(
-                                                                    'tableToEdit After: ' +
-                                                                        JSON.stringify(
-                                                                            tableToEdit
-                                                                        )
-                                                                );
                                                             }}
                                                             checked={
                                                                 tableToEdit[
@@ -258,38 +186,6 @@ function Table({ props }) {
                                                                 ]
                                                             }
                                                         />
-
-                                                        {/* FOR DELETING MULTIPLE TABLES USING CHECKBOXES */}
-                                                        {/* <input
-                                                        type="checkbox"
-                                                        className={
-                                                            props.forWaiter
-                                                                ? ""
-                                                                : "row hidden-element"
-                                                        }
-                                                        onChange={
-                                                            (e) => {
-                                                                addTableToDelete(
-                                                                    e,
-                                                                    table.id
-                                                                );
-                                                            }
-
-                                                            // console.log(
-                                                            //     'clicked'
-                                                            // );
-                                                            // dispatch(
-                                                            //     markToDelete(
-                                                            //         table.id
-                                                            //     )
-                                                            // );
-                                                        }
-                                                        checked={
-                                                            tablesToDelete[
-                                                                table.id
-                                                            ]
-                                                        }
-                                                    ></input> */}
                                                     </td>
                                                     <td className='text-center'>
                                                         <label
@@ -334,7 +230,6 @@ function Table({ props }) {
                 <div className='col-12 d-flex justify-content-between px-5'>
                     <button
                         disabled={!Object.keys(tableToEdit).length > 0}
-                        // disabled={!anyTablesToDelete}
                         type='button'
                         className='btn btn-primary'
                         data-testid='delete-btn'
@@ -342,14 +237,6 @@ function Table({ props }) {
                             dispatch(markToDelete(tableToEdit));
                             dispatch(removeTables(tableToEdit));
                             setTableToEdit({});
-
-                            //WHEN USING CHECKBOXES
-                            // if (anyTablesToDelete) {
-                            //     dispatch(markToDelete(tablesToDelete));
-                            //     dispatch(removeTables(tablesToDelete));
-                            //     setTablesToDelete({});
-                            //     setNoTablesToDelete(0);
-                            // }
                         }}
                     >
                         Delete
@@ -438,10 +325,6 @@ function Table({ props }) {
                                     <button
                                         type='button'
                                         onClick={() => {
-                                            console.log(
-                                                'TABLES TO DELETE ALL: ' +
-                                                    tables
-                                            );
                                             dispatch(removeAllTables(tables));
                                         }}
                                         className='btn btn-danger'
@@ -455,15 +338,6 @@ function Table({ props }) {
                     </div>
                 </div>
             </div>
-            {/* <button
-                onClick={() =>
-                    console.log(
-                        'Local State: ' + JSON.stringify(tablesToDelete)
-                    )
-                }
-            >
-                Check Local State
-            </button> */}
         </div>
     );
 }
