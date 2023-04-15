@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/restaurant-app/static/css/main.f25e0a47.css",
-    "main.js": "/restaurant-app/static/js/main.b2194b28.js",
+    "main.css": "/restaurant-app/static/css/main.0eb41bf6.css",
+    "main.js": "/restaurant-app/static/js/main.06480e5d.js",
     "static/js/787.26da9b02.chunk.js": "/restaurant-app/static/js/787.26da9b02.chunk.js",
     "static/media/tomato-mozarella-salad.jpg": "/restaurant-app/static/media/tomato-mozarella-salad.63bc9842e6b56119c3bf.jpg",
     "static/media/soup-category-img.jpg": "/restaurant-app/static/media/soup-category-img.0d74beafa249d56ab576.jpg",
@@ -32,12 +32,12 @@
     "static/media/tiramisu.jpg": "/restaurant-app/static/media/tiramisu.fd1d3f583d831166c456.jpg",
     "static/media/salmon-tartar-img.jpg": "/restaurant-app/static/media/salmon-tartar-img.b338c0c132b30a7e0c6d.jpg",
     "index.html": "/restaurant-app/index.html",
-    "main.f25e0a47.css.map": "/restaurant-app/static/css/main.f25e0a47.css.map",
-    "main.b2194b28.js.map": "/restaurant-app/static/js/main.b2194b28.js.map",
+    "main.0eb41bf6.css.map": "/restaurant-app/static/css/main.0eb41bf6.css.map",
+    "main.06480e5d.js.map": "/restaurant-app/static/js/main.06480e5d.js.map",
     "787.26da9b02.chunk.js.map": "/restaurant-app/static/js/787.26da9b02.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f25e0a47.css",
-    "static/js/main.b2194b28.js"
+    "static/css/main.0eb41bf6.css",
+    "static/js/main.06480e5d.js"
   ]
 }
