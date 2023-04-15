@@ -15,6 +15,7 @@ import {
     Divider,
 } from '@mui/material';
 import { activeUrl } from '../../api/apiurls';
+import NavigationBar from '../NavigationBar';
 
 function OrderPage() {
     const params = useParams();
@@ -362,6 +363,7 @@ function OrderPage() {
                     </CardActions>
                 </Card>
             </div>
+            <NavigationBar />
         </div>
     );
 }

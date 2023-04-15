@@ -7,6 +7,7 @@ import { upperCase } from 'lodash';
 import { nanoid } from '@reduxjs/toolkit';
 import { Alert } from '@mui/material';
 import { activeUrl } from '../../api/apiurls';
+import NavigationBar from '../NavigationBar';
 
 function CategoryPage() {
     const params = useParams();
@@ -113,6 +114,7 @@ function CategoryPage() {
                     ))}
                 </div>
             </div>
+            <NavigationBar />
         </div>
     );
 }
