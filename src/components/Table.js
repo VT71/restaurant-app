@@ -243,11 +243,8 @@ function Table({ props }) {
                     </button>
                     <button
                         type='button'
-                        className={
-                            Object.keys(tableToEdit).length == 1
-                                ? 'btn btn-warning'
-                                : 'btn btn-warning hidden-element'
-                        }
+                        disabled={Object.keys(tableToEdit).length == 1 ? 0 : 1}
+                        className='btn btn-warning'
                         onClick={() => {
                             const key = Object.keys(tableToEdit)[0];
                             setTableToEdit({

@@ -56,7 +56,6 @@ function Form() {
                                         <input
                                             type='number'
                                             min='1'
-                                            max='10'
                                             className='form-control'
                                             id='tableno-input'
                                             data-testid='tableno-input'
@@ -89,6 +88,12 @@ function Form() {
                                             id='customer-name-input'
                                             data-testid='tableno-input'
                                             required
+                                            value={
+                                                pendingModification.status !=
+                                                'none'
+                                                    ? pendingReservation.name
+                                                    : undefined
+                                            }
                                             onChange={(e) => {
                                                 dispatch(
                                                     updatePendingReservation({

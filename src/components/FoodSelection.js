@@ -13,37 +13,54 @@ function FoodSelection({ foodType }) {
         case 'starters':
             id = 'starters';
             food = [
-                'Eggplant Salad',
-                'Salmon Tartar',
-                'Tomatoes Bruschetta',
-                'Wine Plate',
-                'Eggplant Bruschetta',
+                'Eggplant Salad $9.99',
+                'Salmon Tartar $9.99',
+                'Tomatoes Bruschetta $9.99',
+                'Wine Plate $9.99',
+                'Eggplant Bruschetta $9.99',
             ];
             break;
         case 'soups':
             id = 'soups';
-            food = ['Sweet Potato Soup', 'Pumpkin Soup', 'Tomato Soup', 'Pho'];
+            food = [
+                'Sweet Potato Soup $9.99',
+                'Pumpkin Soup $9.99',
+                'Tomato Soup $9.99',
+                'Pho $9.99',
+            ];
             break;
         case 'salads':
             id = 'salads';
-            food = ['Tuna Salad', 'Caesar Salad', 'Tomato Mozarella Salad'];
+            food = [
+                'Tuna Salad $9.99',
+                'Caesar Salad $9.99',
+                'Tomato Mozarella Salad $9.99',
+            ];
             break;
         case 'pasta':
             id = 'pasta';
-            food = ['Spaghetti Bolognese', 'Carbonara', 'Mussels Pasta'];
+            food = [
+                'Spaghetti Bolognese $9.99',
+                'Carbonara $9.99',
+                'Mussels Pasta $9.99',
+            ];
             break;
         case 'mains':
             id = 'mains';
             food = [
-                'Beef Steak',
-                'Grilled Sardinhas',
-                'Baked Salmon',
-                'Baked Duck',
+                'Beef Steak $9.99',
+                'Grilled Sardinhas $9.99',
+                'Baked Salmon $9.99',
+                'Baked Duck $9.99',
             ];
             break;
         case 'desserts':
             id = 'desserts';
-            food = ['Chocolate Dessert', 'Cheesecake', 'Tiramisu'];
+            food = [
+                'Chocolate Dessert $9.99',
+                'Cheesecake $9.99',
+                'Tiramisu $9.99',
+            ];
             break;
         default:
             id = 'error';
