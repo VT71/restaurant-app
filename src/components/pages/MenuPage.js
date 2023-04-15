@@ -3,6 +3,7 @@ import '../../App.css';
 import { useLocation } from 'react-router-dom';
 import NavigationRail from '../NavigationRail';
 import FoodCard from '../FoodCard';
+import NavigationBar from '../NavigationBar';
 
 function MenuPage() {
     const path = useLocation();
@@ -75,6 +76,7 @@ function MenuPage() {
                     />
                 </div>
             </div>
+            <NavigationBar />
         </div>
     );
 }

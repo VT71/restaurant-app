@@ -130,15 +130,33 @@ body,
     color: #e1e6fa;
 }
 
-.nav-rail {
+.nav-rail,
+.nav-bar {
     background-color: #f2f5eb;
+}
+
+.nav-rail {
     width: 80px;
     position: fixed;
     height: 100%;
 }
 
-.nav-rail a {
+.nav-bar {
+    height: 80px;
+    position: absolute;
+    bottom: -200px;
+    padding-top: 12px;
+    padding-bottom: 16px;
+}
+
+.nav-rail a,
+.nav-bar a {
     text-decoration: none;
+}
+
+.nav-bar-item {
+    height: 52px;
+    width: 64px;
 }
 
 .nav-rail-item {
@@ -147,46 +165,59 @@ body,
     margin-bottom: 12px;
 }
 
-.nav-rail-item:hover {
+.nav-rail-item:hover,
+.nav-bar-item:hover {
     cursor: pointer;
 }
 
-.nav-rail-item h2 {
+.nav-rail-item h2,
+.nav-bar-item h2 {
     margin: 0;
 }
 
 .nav-rail a,
 .nav-rail-item h2,
 a > .nav-rail-item i,
-.nav-rail-item i {
+.nav-rail-item i,
+.nav-bar a,
+.nav-bar-item h2,
+a > .nav-bar-item i,
+.nav-bar-item i {
     color: var(--md-sys-color-on-surface-variant-light);
 }
 
-a > .nav-rail-item.active {
+a > .nav-rail-item.active,
+a > .nav-bar-item.active {
     color: var(--md-sys-color-on-surface-light);
 }
 
-a > .nav-rail-item.active i {
+a > .nav-rail-item.active i,
+a > .nav-bar-item.active i {
     color: var(--md-sys-color-on-secondary-container-light);
 }
 
-.nav-rail-item.active .nav-icon-container {
+.nav-rail-item.active .nav-icon-container,
+.nav-bar-item.active .nav-icon-container {
     background-color: var(--md-sys-color-secondary-container-light);
 }
 
-.nav-rail-item.active:hover .nav-icon-container {
+.nav-rail-item.active:hover .nav-icon-container,
+.nav-bar-item.active:hover .nav-icon-container {
     background-color: #c4d1b8;
 }
 
-.nav-rail-item.active:active .nav-icon-container {
+.nav-rail-item.active:active .nav-icon-container,
+.nav-bar-item.active:active .nav-icon-container {
     background-color: var(--md-sys-color-secondary-container-light);
 }
 
-.nav-rail-item:hover .nav-icon-container {
+.nav-rail-item:hover .nav-icon-container,
+.nav-bar-item:hover .nav-icon-container {
     background-color: rgba(67, 72, 62, 0.08);
 }
 
-.nav-rail-item:active .nav-icon-container {
+.nav-rail-item:active .nav-icon-container,
+.nav-bar-item:active .nav-icon-container {
     background-color: transparent;
 }
 

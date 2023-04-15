@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { activeUrl } from '../api/apiurls';
 
-function NavigationRail() {
+function NavigationBar() {
     const customerPage = window.location.href;
     const params = useParams();
     const tableId = params.tableid;
@@ -36,13 +36,13 @@ function NavigationRail() {
     };
 
     return (
-        <div className='nav-rail d-flex flex-column align-items-center justify-content-center'>
+        <div className='nav-bar w-100 d-flex align-items-center justify-content-evenly'>
             <Link to={`/tables/${tableId}/menu`}>
                 <div
                     className={
                         customerPage.includes('menu')
-                            ? 'nav-rail-item active d-flex align-items-center justify-content-center'
-                            : 'nav-rail-item d-flex align-items-center justify-content-center'
+                            ? 'nav-bar-item active d-flex align-items-center justify-content-center'
+                            : 'nav-bar-item d-flex align-items-center justify-content-center'
                     }
                 >
                     <div className='d-flex flex-column justify-content-center align-items-center'>
@@ -59,8 +59,8 @@ function NavigationRail() {
                 <div
                     className={
                         customerPage.includes('order')
-                            ? 'nav-rail-item active d-flex align-items-center justify-content-center'
-                            : 'nav-rail-item d-flex align-items-center justify-content-center'
+                            ? 'nav-bar-item active d-flex align-items-center justify-content-center'
+                            : 'nav-bar-item d-flex align-items-center justify-content-center'
                     }
                 >
                     <div className='d-flex flex-column justify-content-center align-items-center'>
@@ -74,7 +74,7 @@ function NavigationRail() {
                 </div>
             </Link>
             <div
-                className='nav-rail-item d-flex align-items-center justify-content-center'
+                className='nav-bar-item d-flex align-items-center justify-content-center'
                 onClick={() => {
                     fetchCustomerTable(tableId);
                 }}
@@ -92,4 +92,4 @@ function NavigationRail() {
     );
 }
 
-export default NavigationRail;
+export default NavigationBar;
