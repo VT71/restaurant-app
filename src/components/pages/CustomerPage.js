@@ -47,7 +47,7 @@ function CustomerPage() {
                         routeChange(newTable.id);
                     }}
                 >
-                    <div className='col col-8 col-sm-6 col-md-4 m-auto text-center'>
+                    <div className='col col-10 col-sm-6 col-md-4 m-auto text-center'>
                         <Card
                             variant='filled'
                             elevation={0}
@@ -58,7 +58,7 @@ function CustomerPage() {
                                 paddingBottom: '35px',
                             }}
                         >
-                            <h1 className='display-small'>
+                            <h1 className='headline-large'>
                                 Select your Table Number
                             </h1>
                             <div className='my-3'>
