@@ -16,6 +16,7 @@ export const initialState = {
             food: '',
             comment: '',
         },
+        id: nanoid(),
     },
     pendingModification: { status: 'none', id: '', number: '' },
 };
@@ -47,7 +48,6 @@ export const addTable = createAsyncThunk(
 export const removeTables = createAsyncThunk(
     'tables/removeTables',
     async (tablesToDelete) => {
-        console.log('tablesToDelete: ' + JSON.stringify(tablesToDelete));
         for (const table in tablesToDelete) {
             if (tablesToDelete[table] === true) {
                 await fetch(`${activeUrl}/tables/${table}`, {
@@ -63,10 +63,7 @@ export const removeTables = createAsyncThunk(
 export const removeAllTables = createAsyncThunk(
     'tables/removeAllTables',
     async (tables) => {
-        console.log('HMM2');
-        console.log('TABLES: ' + tables);
         for (const table of tables) {
-            console.log('TABLE: ' + JSON.stringify(table));
             await fetch(`${activeUrl}/tables/${table['id']}`, {
                 method: 'DELETE',
             }).catch((err) => {
@@ -101,16 +98,11 @@ export const tableSlice = createSlice({
             state.tablesToDelete = action.payload;
         },
         updatePendingReservation: (state, action) => {
-            console.log('New food: ' + action.payload.data);
             if (action.payload.dataType == 'complete') {
                 state.pendingReservation = action.payload.data;
             } else {
                 state.pendingReservation[action.payload.dataType] =
                     action.payload.data;
-                console.log(
-                    'NEw Pending Reservation: ' +
-                        JSON.stringify(state.pendingReservation)
-                );
             }
         },
         updatePendingModification: (state, action) => {
@@ -132,20 +124,17 @@ export const tableSlice = createSlice({
             })
             .addCase(addTable.fulfilled, (state, action) => {
                 state.apiStatus = 'succeeded';
-                console.log('Add Table Succeeded');
+                state.tables.push(state.pendingReservation);
+                state.pendingReservation = initialState.pendingReservation;
             })
             .addCase(removeTables.fulfilled, (state, action) => {
                 state.apiStatus = 'succeeded';
 
-                console.log(' we re here');
                 for (const property in state.tablesToDelete) {
-                    console.log(' Property: ' + property);
                     if (state.tablesToDelete[property] === true) {
-                        console.log('Inside If');
                         const table = state.tables.find(
                             (table) => table.id == property
                         );
-                        console.log('Table to delete: ' + table);
                         state.tables.splice(state.tables.indexOf(table), 1);
                     }
                 }
