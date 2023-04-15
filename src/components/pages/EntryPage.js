@@ -27,7 +27,7 @@ function EntryPage() {
         <div className='entry-page-container vh-100 d-flex flex-column justify-content-center'>
             <Card className='m-auto w-75 p-4' variant='filled'>
                 <h1 className='display-medium text-center mb-5'>Hello User</h1>
-                <div className='d-flex justify-content-around align-items-center mt-5'>
+                <div className='entry-page-buttons-container d-flex justify-content-around align-items-center mt-5'>
                     <div>
                         <Button
                             variant='disabled'
